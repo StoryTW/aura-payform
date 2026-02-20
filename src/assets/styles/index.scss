@@ -1,0 +1,9 @@
+@forward 'fonts';
+@forward 'variables';
+
+body {
+  background-color: var(--black2);
+  color: var(--white80);
+  height: 100vh;
+  width: 100vw;
+}

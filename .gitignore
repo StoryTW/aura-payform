@@ -1,0 +1,64 @@
+# ======================
+# Logs
+# ======================
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# ======================
+# Dependencies / build
+# ======================
+node_modules
+dist
+dist-ssr
+*.local
+
+# ======================
+# TypeScript
+# ======================
+*.tsbuildinfo
+
+# ======================
+# Caches
+# ======================
+.npm
+.eslintcache
+.stylelintcache
+.cache
+.parcel-cache
+
+# ======================
+# Pack output
+# ======================
+*.tgz
+
+# ======================
+# IDE / OS
+# ======================
+.idea
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+!.vscode/*.code-snippets
+
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ======================
+# Env files
+# ======================
+.env
+.env.*
+
+# Vite
+.vite

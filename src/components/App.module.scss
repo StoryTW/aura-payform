@@ -1,0 +1,86 @@
+.root {
+  display: flex;
+  padding: 16px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+
+  @include respond(md) {
+    padding: 20px;
+  }
+
+  @include respond(lg) {
+    padding: 32px;
+  }
+}
+
+.imgContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.badgeWrapper {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+
+  a {
+    display: block;
+  }
+}
+
+.logo {
+  width: 100px;
+  height: 100px;
+
+  @include transition;
+
+  @include respond(sm) {
+    width: 160px;
+    height: 160px;
+  }
+
+  @include respond(md) {
+    width: 180px;
+    height: 180px;
+  }
+
+  @include respond(lg) {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+.react {
+  animation: spin 10s linear infinite;
+}
+
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.title {
+  text-align: center;
+
+  @include inter_600_28;
+
+  @include respond(lg) {
+    @include inter_600_32;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

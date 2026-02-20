@@ -1,0 +1,51 @@
+@use 'sass:map';
+
+// Media Queries Mixins
+$breakpoints: (
+  sm: 480px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1440px,
+);
+
+@mixin respond($bp) {
+  @if map.has-key($breakpoints, $bp) {
+    @media (min-width: map.get($breakpoints, $bp)) {
+      @content;
+    }
+  } @else {
+    @warn "Unknown breakpoint: #{$bp}";
+  }
+}
+
+// Smooth Transition
+@mixin transition {
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+@mixin noScrollBar {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+// Fonts
+@mixin inter_600_32 {
+  font-family: 'Inter';
+  font-size: 32px;
+  font-weight: 600;
+  line-height: normal;
+}
+
+@mixin inter_600_28 {
+  font-family: 'Inter';
+  font-size: 28px;
+  font-weight: 600;
+  line-height: normal;
+}
