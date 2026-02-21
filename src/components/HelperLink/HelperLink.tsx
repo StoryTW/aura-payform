@@ -8,7 +8,12 @@ export const HelperLink = () => {
   const { t } = useTranslation();
 
   return (
-    <a className={styles.link} href='https://aurapay.tech/' target='_blank'>
+    <a
+      className={styles.link}
+      href='https://aurapay.tech/'
+      target='_blank'
+      rel='noopener noreferrer'
+    >
       <IconQuestion />
 
       {t('help')}

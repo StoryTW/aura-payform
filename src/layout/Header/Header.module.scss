@@ -1,5 +1,10 @@
-.root {
-  box-shadow: var(--shadow-1);
+.header {
+  box-shadow: var(--shadow-header);
+  margin-bottom: 16px;
+
+  @include respond(sm) {
+    margin-bottom: 24px;
+  }
 }
 
 .wrapper {
@@ -7,14 +12,22 @@
   max-width: 1440px;
   margin: 0 auto;
 
-  padding: 16px 24px;
+  padding: 8px 16px;
   display: flex;
   justify-content: space-between;
   gap: 8px;
+
+  @include respond(sm) {
+    padding: 16px 24px;
+  }
 }
 
 .content {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 8px;
+
+  @include respond(sm) {
+    gap: 40px;
+  }
 }

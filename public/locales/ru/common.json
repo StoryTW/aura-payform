@@ -1,3 +1,7 @@
 {
-  "help": "Нужна помощь?"
+  "help": "Нужна помощь?",
+  "publicOffer": "Публичная оферта",
+  "processingOfPersonalData": "Обработка персональных данных",
+  "by making a payment you agree to the": "Оплачивая вы принимаете",
+  "termsOfService": "условия сервиса"
 }

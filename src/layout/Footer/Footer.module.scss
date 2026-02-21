@@ -1,0 +1,62 @@
+.footer {
+  box-shadow: var(--shadow-footer);
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  padding: 8px 16px;
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+
+  @include respond(sm) {
+    padding: 16px 24px;
+  }
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 0px;
+
+  a {
+    display: none;
+  }
+
+  @include respond(md) {
+    gap: 64px;
+
+    a {
+      display: block;
+    }
+  }
+}
+
+.link {
+  color: var(--gray-2);
+  text-decoration: none;
+
+  @include montserrat_400_8;
+  @include transition;
+
+  &:hover {
+    color: var(--blue);
+  }
+
+  @include respond(sm) {
+    @include montserrat_400_12;
+  }
+}
+
+.copyright {
+  color: var(--gray-2);
+
+  @include montserrat_400_8;
+
+  @include respond(sm) {
+    @include montserrat_400_12;
+  }
+}

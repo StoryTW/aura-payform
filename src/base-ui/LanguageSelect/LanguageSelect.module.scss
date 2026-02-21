@@ -14,7 +14,7 @@
   color: var(--black);
   padding: 8px;
 
-  @include montserrat_600_13;
+  @include montserrat_600_12;
 }
 
 .flagIcon {
@@ -50,7 +50,7 @@
   background: var(--white);
   color: var(--black);
 
-  @include montserrat_600_13;
+  @include montserrat_600_12;
   @include transition;
 
   &.selected {

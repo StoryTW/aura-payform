@@ -36,16 +36,30 @@ $breakpoints: (
 }
 
 // Fonts
-@mixin montserrat_400_13 {
+@mixin montserrat_400_8 {
   font-family: var(--font-montserrat);
-  font-size: 13px;
+  font-size: 8px;
   font-weight: 400;
   line-height: 150%;
 }
 
-@mixin montserrat_600_13 {
+@mixin montserrat_400_12 {
   font-family: var(--font-montserrat);
-  font-size: 13px;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+@mixin montserrat_600_12 {
+  font-family: var(--font-montserrat);
+  font-size: 12px;
   font-weight: 600;
+  line-height: 150%;
+}
+
+@mixin montserrat_400_14 {
+  font-family: var(--font-montserrat);
+  font-size: 14px;
+  font-weight: 400;
   line-height: 150%;
 }

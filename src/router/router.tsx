@@ -1,26 +1,26 @@
 import { createBrowserRouter } from 'react-router';
 
-import { MainLayout } from '@/layout/MainLayout/MainLayout';
+import { RootLayout } from '@/layout/RootLayout/RootLayout';
+import { SelectPaymentMethodPage } from '@/pages/SelectPaymentMethodPage/SelectPaymentMethodPage';
 
 export const router = createBrowserRouter([
   {
     path: '/',
     // path: 'invoice/:invoiceId/*',
-    // Component: App,
-    element: <MainLayout />,
+    element: <RootLayout />,
     children: [
       {
         index: true,
-        element: <div>sda</div>,
+        element: <SelectPaymentMethodPage />,
       },
       // {
       //   path: ':method',
       //   lazy: () => import()
       // },
-      // {
-      //   path: 'status',
-      //   lazy: () => import()
-      // }
+      {
+        path: 'status',
+        lazy: () => import('@/pages/StatusPage/StatusPage'),
+      },
     ],
   },
 ]);

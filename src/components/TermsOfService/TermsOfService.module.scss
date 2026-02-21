@@ -1,0 +1,25 @@
+.text {
+  display: block;
+  text-align: center;
+  margin-bottom: 16px;
+  color: var(--gray);
+
+  @include montserrat_400_14;
+
+  a {
+    text-decoration: underline;
+    color: var(--gray);
+
+    @include transition;
+
+    &:hover {
+      color: var(--blue);
+    }
+  }
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

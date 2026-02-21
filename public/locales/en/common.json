@@ -1,3 +1,7 @@
 {
-  "help": "Help?"
+  "help": "Help?",
+  "publicOffer": "Public offer",
+  "processingOfPersonalData": "Processing of personal data",
+  "by making a payment you agree to the": "By making a payment, you agree to the",
+  "termsOfService": "terms of service"
 }

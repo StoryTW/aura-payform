@@ -90,7 +90,7 @@ export const LanguageSelect = () => {
             initial='close'
             animate='open'
             exit='close'
-            transition={{ duration: 0.15 }}
+            transition={{ duration: 0.2 }}
             className={styles.dropdown}
           >
             {languages.map((lang) => (
