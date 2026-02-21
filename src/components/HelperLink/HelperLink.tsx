@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 
-import IconQuestion from '@/assets/images/question.svg?react';
+import IconQuestion from '@/assets/images/icon-question.svg?react';
 
 import styles from './HelperLink.module.scss';
 

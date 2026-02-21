@@ -10,7 +10,7 @@ i18n
   .init({
     fallbackLng: 'ru',
 
-    ns: ['common', 'card', 'sbp'],
+    ns: ['common', 'card', 'sbp', 'alert'],
     defaultNS: 'common',
 
     backend: {

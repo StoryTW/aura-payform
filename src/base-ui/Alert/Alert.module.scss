@@ -1,0 +1,71 @@
+.root {
+  border-radius: 16px;
+
+  &.success {
+    background: var(--light-green);
+    border: 1px solid var(--success-border);
+  }
+
+  &.error {
+    background: var(--light-red);
+    border: 1px solid var(--error-border);
+  }
+
+  &.warning {
+    background: var(--light-orange);
+    border: 1px solid var(--warning-border);
+  }
+}
+
+.wrapper {
+  display: flex;
+  align-items: start;
+  gap: 16px;
+  padding: 8px;
+
+  @include respond(sm) {
+    padding: 16px;
+  }
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+
+  &.success {
+    svg {
+      color: var(--success);
+    }
+  }
+
+  &.error {
+    svg {
+      color: var(--error);
+    }
+  }
+
+  &.warning {
+    svg {
+      color: var(--warning);
+    }
+  }
+}
+
+.text {
+  @include montserrat_400_12;
+
+  &.success {
+    color: var(--success);
+  }
+
+  &.error {
+    color: var(--error);
+  }
+
+  &.warning {
+    color: var(--warning);
+  }
+}
