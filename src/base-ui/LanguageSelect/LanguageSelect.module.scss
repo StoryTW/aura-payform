@@ -1,0 +1,63 @@
+.root {
+  position: relative;
+  display: inline-block;
+}
+
+.trigger {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  text-transform: uppercase;
+  color: var(--black);
+  padding: 8px;
+
+  @include montserrat_600_13;
+}
+
+.flagIcon {
+  border: 1px solid var(--gray-3);
+  object-fit: cover;
+}
+
+.chevron {
+  @include transition;
+
+  &.open {
+    transform: rotate(180deg);
+  }
+}
+
+.dropdown {
+  position: absolute;
+  top: '100%';
+  left: 0px;
+  background: var(--white);
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.optionItem {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 8px;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  background: var(--white);
+  color: var(--black);
+
+  @include montserrat_600_13;
+  @include transition;
+
+  &.selected {
+    background: var(--gray-3);
+  }
+
+  &:hover {
+    background: var(--gray-3);
+  }
+}

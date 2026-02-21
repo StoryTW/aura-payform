@@ -36,16 +36,16 @@ $breakpoints: (
 }
 
 // Fonts
-@mixin montserrat_600_32 {
+@mixin montserrat_400_13 {
   font-family: var(--font-montserrat);
-  font-size: 32px;
-  font-weight: 600;
-  line-height: normal;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 150%;
 }
 
-@mixin montserrat_600_28 {
+@mixin montserrat_600_13 {
   font-family: var(--font-montserrat);
-  font-size: 28px;
+  font-size: 13px;
   font-weight: 600;
-  line-height: normal;
+  line-height: 150%;
 }

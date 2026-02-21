@@ -1,0 +1,24 @@
+.link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--gray-2);
+  text-decoration: none;
+
+  @include montserrat_400_13;
+  @include transition;
+
+  svg {
+    color: var(--gray-2);
+
+    @include transition;
+  }
+
+  &:hover {
+    color: var(--blue);
+
+    svg {
+      color: var(--blue);
+    }
+  }
+}

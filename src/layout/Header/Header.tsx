@@ -1,4 +1,6 @@
-import { AURA_LANDING_LINK } from '@/utils/helpers/constants';
+import { LanguageSelect } from '@/base-ui/LanguageSelect/LanguageSelect';
+import { HelperLink } from '@/components/HelperLink/HelperLink';
+import { Logo } from '@/components/Logo/Logo';
 
 import styles from './Header.module.scss';
 
@@ -6,11 +8,13 @@ export const Header = () => {
   return (
     <header className={styles.root}>
       <div className={styles.wrapper}>
-        <a href={AURA_LANDING_LINK} target='_blank' className={styles.link}>
-          <img src='/img/logo.svg' width={85} height={22} alt='aura-logo' />
-        </a>
+        <Logo />
 
-        <div className={styles.content}>content</div>
+        <div className={styles.content}>
+          <LanguageSelect />
+
+          <HelperLink />
+        </div>
       </div>
     </header>
   );
