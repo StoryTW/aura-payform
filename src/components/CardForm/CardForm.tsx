@@ -3,6 +3,7 @@ import { Controller, type SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import { InputBase } from '@/base-ui/InputBase/InputBase';
+import { ValidationHint } from '@/base-ui/ValidationHint/ValidationHint';
 import {
   type CardFormType,
   cardFormValidationSchema,
@@ -63,6 +64,11 @@ export const CardForm = () => {
 
   // console.log(watchCardNumber, 'cardNumber');
 
+  const validationError = (errors.cardNumber?.message ||
+    errors.expiry?.message ||
+    errors.cvv?.message ||
+    errors.cardName?.message) as string;
+
   const onSubmit: SubmitHandler<CardFormType> = (data) => {
     console.log('valid card:', data);
   };
@@ -78,7 +84,7 @@ export const CardForm = () => {
               {...field}
               id='cardNumber'
               label='Номер карты'
-              placeholder='Введите номер карты'
+              placeholder='**** **** **** ****'
               autoComplete='cc-number'
               inputMode='numeric'
               maxLength={19}
@@ -209,6 +215,8 @@ export const CardForm = () => {
         <button type='submit' disabled={!isValid}>
           Оппатить
         </button>
+
+        <ValidationHint error={validationError} />
       </form>
     </div>
   );

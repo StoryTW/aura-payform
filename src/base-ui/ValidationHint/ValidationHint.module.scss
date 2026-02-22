@@ -1,2 +1,17 @@
 .root {
+  border-radius: 8px;
+  background: var(--light-red);
+  padding: 4px;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.text {
+  color: var(--error);
+
+  @include montserrat_400_12;
 }

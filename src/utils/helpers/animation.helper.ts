@@ -9,6 +9,14 @@ const animateObject = {
       height: 'auto',
     },
   },
+  validationHint: {
+    hide: {
+      opacity: 0,
+    },
+    show: {
+      opacity: 1,
+    },
+  },
 };
 
 export const animateHelper = (variant: IAnimateVariants) => animateObject[variant];
