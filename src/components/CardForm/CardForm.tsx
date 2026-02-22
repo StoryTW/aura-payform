@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import { Controller, type SubmitHandler, useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import { InputBase } from '@/base-ui/InputBase/InputBase';
@@ -41,13 +42,15 @@ export const CardForm = () => {
   const expiryRef = useRef<HTMLInputElement>(null);
   const cvvRef = useRef<HTMLInputElement>(null);
 
+  const { t } = useTranslation(['card']);
+
   const {
     handleSubmit,
     setValue,
     formState: { errors, isValid },
     control,
   } = useForm<CardFormType>({
-    resolver: zodResolver(cardFormValidationSchema),
+    resolver: zodResolver(cardFormValidationSchema(t)),
     mode: 'onChange',
     defaultValues: {
       cardNumber: '',
@@ -56,13 +59,6 @@ export const CardForm = () => {
       cardName: '',
     },
   });
-
-  // const watchCardNumber = useWatch({
-  //   control,
-  //   name: 'cardNumber',
-  // });
-
-  // console.log(watchCardNumber, 'cardNumber');
 
   const validationError = (errors.cardNumber?.message ||
     errors.expiry?.message ||
@@ -83,8 +79,8 @@ export const CardForm = () => {
             <InputBase
               {...field}
               id='cardNumber'
-              label='Номер карты'
-              placeholder='**** **** **** ****'
+              label={t('label.cardNumber')}
+              placeholder='1234 5678 9012 3456'
               autoComplete='cc-number'
               inputMode='numeric'
               maxLength={19}
@@ -128,11 +124,11 @@ export const CardForm = () => {
                 {...field}
                 ref={expiryRef}
                 id='expiry'
-                label='Срок действия'
+                label={t('label.expireDate')}
                 inputMode='numeric'
                 autoComplete='cc-exp'
                 maxLength={5}
-                placeholder='ММ/ГГ'
+                placeholder={t('label.MMYY')}
                 onChange={(e) => {
                   const formatted = onChangeExpiry(e.target.value);
 
@@ -195,8 +191,8 @@ export const CardForm = () => {
             <InputBase
               {...field}
               id='cardName'
-              label='Имя держателя карты'
-              placeholder='Введите имя держателя карты'
+              label={t('label.cardHolder')}
+              placeholder={t('label.cardHolderName')}
               autoComplete='cc-name'
               autoCapitalize='characters'
               classNameWrapper={styles.input}
