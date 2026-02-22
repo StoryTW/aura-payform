@@ -13,6 +13,7 @@
   },
   "status": {
     "paymentError": "Payment error",
+    "paymentSuccess": "Payment was successful",
     "returnToTheStoreWebsite": "Return to the store website",
     "tryAgain": "Try again"
   },
@@ -30,5 +31,15 @@
     "MMYY": "MM/YY",
     "cardHolderName": "CARDHOLDER NAME",
     "payCard": "PAY BY CARD"
+  },
+  "sbpForm": {
+    "paymentViaSbp": "Payment via SBP",
+    "scanQrCode": "Scan the QR code in the bank app",
+    "openBankApp": "Open your bank's app and scan the code to pay"
+  },
+  "alert": {
+    "refreshPage": "After payment, the page will refresh automatically",
+    "cardDetailsProtected": "Your card details are protected and transmitted over a secure connection",
+    "orderInfoSent": "Order information has been sent to your email"
   }
 }

@@ -211,7 +211,25 @@ export const CardForm = () => {
 
         <ValidationHint error={validationError} />
 
-        <Button variant='dark' size='l' type='submit' disabled={!isValid} fullWidth>
+        <Button
+          variant='dark'
+          size='l'
+          type='submit'
+          disabled={!isValid}
+          fullWidth
+          iconRight={
+            <div className={styles.btnIcons}>
+              <img src='/public/img/pay-icons/icon-mir.svg' alt='mir' width={48} height={24} />
+              <img src='/public/img/pay-icons/icon-visa.svg' alt='visa' width={48} height={24} />
+              <img
+                src='/public/img/pay-icons/icon-mastercard.svg'
+                alt='ms'
+                width={48}
+                height={24}
+              />
+            </div>
+          }
+        >
           {t('cardForm.payCard')}
         </Button>
       </form>

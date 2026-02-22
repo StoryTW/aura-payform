@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes } from 'react';
+import type { ButtonHTMLAttributes, ReactNode } from 'react';
 import clsx from 'clsx';
 
 import { Spinner } from '@/base-ui/Spinner/Spinner';
@@ -14,6 +14,8 @@ export interface IButton extends ButtonHTMLAttributes<HTMLButtonElement> {
   size: ButtonSize;
   fullWidth?: boolean;
   isLoading?: boolean;
+  iconLeft?: ReactNode;
+  iconRight?: ReactNode;
 }
 
 export const Button = ({
@@ -25,6 +27,8 @@ export const Button = ({
   disabled,
   fullWidth = false,
   type = 'button',
+  iconLeft,
+  iconRight,
   ...props
 }: IButton) => {
   return (
@@ -37,7 +41,9 @@ export const Button = ({
       disabled={disabled || isLoading}
       {...props}
     >
+      {iconLeft && <>{iconLeft}</>}
       {isLoading ? <Spinner /> : children}
+      {iconRight && <>{iconRight}</>}
     </button>
   );
 };

@@ -3,7 +3,7 @@
 }
 
 .form {
-  // width: 100%;
+  width: 100%;
 }
 
 .input {
@@ -15,4 +15,10 @@
   align-items: center;
   gap: 16px;
   margin-bottom: 16px;
+}
+
+.btnIcons {
+  display: flex;
+  align-items: center;
+  gap: 2px;
 }
