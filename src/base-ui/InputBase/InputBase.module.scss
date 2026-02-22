@@ -1,0 +1,54 @@
+.root {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  color: var(--black);
+
+  @include montserrat_400_14;
+}
+
+.input {
+  background: transparent;
+  border-radius: 8px;
+  border: 1px solid var(--gray-3);
+  padding: 16px;
+  color: var(--black);
+  box-shadow: none;
+  outline: none;
+
+  @include montserrat_400_14;
+  @include transition;
+
+  &:disabled {
+    pointer-events: none;
+    user-select: none;
+    color: var(--gray);
+  }
+
+  &:focus {
+    border: 1px solid var(--blue2);
+    box-shadow: var(--shadow-input-focus);
+  }
+
+  &:active {
+    border: 1px solid var(--blue2);
+    box-shadow: 0 0 0 3px var(--shadow-input-focus);
+  }
+
+  &:read-only {
+    color: var(--gray);
+  }
+
+  &::placeholder {
+    color: var(--gray);
+  }
+
+  &.error {
+    box-shadow: var(--shadow-input-error);
+    border: 1px solid var(--error);
+  }
+}

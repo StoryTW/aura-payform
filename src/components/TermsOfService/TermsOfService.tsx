@@ -47,7 +47,7 @@ export const TermsOfService = () => {
 
       <div className={styles.icons}>
         {ICONS.map((icon) => {
-          return <img src={icon.src} alt={icon.name} />;
+          return <img key={icon.name} src={icon.src} alt={icon.name} />;
         })}
       </div>
     </div>

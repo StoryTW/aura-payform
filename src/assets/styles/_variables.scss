@@ -8,6 +8,7 @@
   --gray-2: #979aa0;
   --gray-3: #eaecf0;
   --blue: #4465ea;
+  --blue2: #0e69e2;
   --light-red: #ffefee;
   --light-green: #e9f8f1;
   --light-orange: #fdf6ea;
@@ -25,4 +26,6 @@
   --shadow-header: 0 1px 2px 0 rgba(16, 24, 40, 0.04);
   --shadow-footer: 0 -1px 2px 0 rgba(16, 24, 40, 0.04);
   --shadow-form: 0 20px 25px -5px rgba(16, 24, 40, 0.1), 0 8px 10px -6px rgba(16, 24, 40, 0.1);
+  --shadow-input-error: 0 0 0 3px #fddddc;
+  --shadow-input-focus: 0 0 0 3px #b2d5ff;
 }
