@@ -1,30 +1,31 @@
+import type { ReactNode } from 'react';
 import { Outlet } from 'react-router';
+import clsx from 'clsx';
 
 import { InvoiceInfoView } from '@/components/InvoiceInfoView/InvoiceInfoView';
-import { SbpForm } from '@/components/SbpForm/SbpForm';
-import { TermsOfService } from '@/components/TermsOfService/TermsOfService';
+import { ViewWrapper } from '@/components/ViewWrapper/ViewWrapper';
 import { Footer } from '@/layout/Footer/Footer';
 import { Header } from '@/layout/Header/Header';
 
 import styles from './RootLayout.module.scss';
 
-export const RootLayout = () => {
+type LayoutVariantType = 'invoice' | 'status' | 'error';
+
+interface IRootLayout {
+  variant?: LayoutVariantType;
+  children?: ReactNode;
+}
+
+export const RootLayout = ({ variant = 'invoice', children }: IRootLayout) => {
   return (
     <>
       <Header />
 
-      <section className={styles.content}>
-        <div className={styles.view}>
-          <Outlet />
+      <main className={clsx(styles.main, styles[variant])}>
+        <ViewWrapper>{children ?? <Outlet />}</ViewWrapper>
 
-          {/* <CardForm /> */}
-          <SbpForm />
-
-          <TermsOfService />
-        </div>
-
-        <InvoiceInfoView />
-      </section>
+        {variant === 'invoice' && <InvoiceInfoView />}
+      </main>
 
       <Footer />
     </>

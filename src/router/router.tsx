@@ -1,26 +1,54 @@
-import { createBrowserRouter } from 'react-router';
+import { createBrowserRouter, Outlet } from 'react-router';
 
 import { RootLayout } from '@/layout/RootLayout/RootLayout';
+import { NotFoundPage } from '@/pages/NotFoundPage/NotFoundPage';
 import { SelectPaymentMethodPage } from '@/pages/SelectPaymentMethodPage/SelectPaymentMethodPage';
 
 export const router = createBrowserRouter([
   {
-    path: '/',
-    // path: 'invoice/:invoiceId/*',
-    element: <RootLayout />,
+    path: ':invoiceId',
     children: [
       {
         index: true,
-        element: <SelectPaymentMethodPage />,
+        element: (
+          <RootLayout variant='invoice'>
+            <SelectPaymentMethodPage />
+          </RootLayout>
+        ),
       },
-      // {
-      //   path: ':method',
-      //   lazy: () => import()
-      // },
+
       {
         path: 'status',
-        lazy: () => import('@/pages/StatusPage/StatusPage'),
+        element: (
+          <RootLayout variant='status'>
+            <Outlet />
+          </RootLayout>
+        ),
+        children: [
+          {
+            index: true,
+            lazy: () => import('@/pages/StatusPage/StatusPage'),
+          },
+        ],
+      },
+
+      {
+        path: '*',
+        element: (
+          <RootLayout variant='error'>
+            <NotFoundPage />
+          </RootLayout>
+        ),
       },
     ],
+  },
+
+  {
+    path: '*',
+    element: (
+      <RootLayout variant='error'>
+        <NotFoundPage />
+      </RootLayout>
+    ),
   },
 ]);

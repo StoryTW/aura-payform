@@ -1,0 +1,11 @@
+.view {
+  background: var(--background-form);
+  box-shadow: var(--shadow-form);
+  padding: 16px;
+  border-radius: 16px;
+  height: max-content;
+
+  @include respond(sm) {
+    padding: 24px;
+  }
+}

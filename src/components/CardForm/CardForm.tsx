@@ -85,7 +85,7 @@ export const CardForm = () => {
               {...field}
               id='cardNumber'
               label={t('cardForm.cardNumber')}
-              placeholder='1234 5678 9012 3456'
+              placeholder='1234 1234 1234 1234'
               autoComplete='cc-number'
               inputMode='numeric'
               maxLength={19}

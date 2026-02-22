@@ -29,7 +29,7 @@
     "expireDate": "Expiry date",
     "cardHolder": "Cardholder name",
     "MMYY": "MM/YY",
-    "cardHolderName": "CARDHOLDER NAME",
+    "cardHolderName": "Full name on card",
     "payCard": "PAY BY CARD"
   },
   "sbpForm": {
