@@ -3,6 +3,7 @@ import { Controller, type SubmitHandler, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { zodResolver } from '@hookform/resolvers/zod';
 
+import { Button } from '@/base-ui/Button/Button';
 import { InputBase } from '@/base-ui/InputBase/InputBase';
 import { ValidationHint } from '@/base-ui/ValidationHint/ValidationHint';
 import {
@@ -42,7 +43,7 @@ export const CardForm = () => {
   const expiryRef = useRef<HTMLInputElement>(null);
   const cvvRef = useRef<HTMLInputElement>(null);
 
-  const { t } = useTranslation(['card']);
+  const { t } = useTranslation();
 
   const {
     handleSubmit,
@@ -79,7 +80,7 @@ export const CardForm = () => {
             <InputBase
               {...field}
               id='cardNumber'
-              label={t('label.cardNumber')}
+              label={t('cardForm.cardNumber')}
               placeholder='1234 5678 9012 3456'
               autoComplete='cc-number'
               inputMode='numeric'
@@ -124,11 +125,11 @@ export const CardForm = () => {
                 {...field}
                 ref={expiryRef}
                 id='expiry'
-                label={t('label.expireDate')}
+                label={t('cardForm.expireDate')}
                 inputMode='numeric'
                 autoComplete='cc-exp'
                 maxLength={5}
-                placeholder={t('label.MMYY')}
+                placeholder={t('cardForm.MMYY')}
                 onChange={(e) => {
                   const formatted = onChangeExpiry(e.target.value);
 
@@ -191,8 +192,8 @@ export const CardForm = () => {
             <InputBase
               {...field}
               id='cardName'
-              label={t('label.cardHolder')}
-              placeholder={t('label.cardHolderName')}
+              label={t('cardForm.cardHolder')}
+              placeholder={t('cardForm.cardHolderName')}
               autoComplete='cc-name'
               autoCapitalize='characters'
               classNameWrapper={styles.input}
@@ -208,11 +209,11 @@ export const CardForm = () => {
           )}
         />
 
-        <button type='submit' disabled={!isValid}>
-          Оппатить
-        </button>
-
         <ValidationHint error={validationError} />
+
+        <Button variant='dark' size='l' type='submit' disabled={!isValid} fullWidth>
+          {t('cardForm.payCard')}
+        </Button>
       </form>
     </div>
   );

@@ -25,7 +25,7 @@ export const Footer = () => {
           className={styles.link}
           rel='noopener noreferrer'
         >
-          {t('publicOffer')}
+          {t('footer.publicOffer')}
         </a>
 
         <a
@@ -34,7 +34,7 @@ export const Footer = () => {
           className={styles.link}
           rel='noopener noreferrer'
         >
-          {t('processingOfPersonalData')}
+          {t('footer.processingOfPersonalData')}
         </a>
       </div>
     </footer>

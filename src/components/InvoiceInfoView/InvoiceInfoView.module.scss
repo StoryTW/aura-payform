@@ -9,3 +9,16 @@
     padding: 24px;
   }
 }
+
+.title {
+  color: var(--black);
+  margin-bottom: 16px;
+
+  @include montserrat_400_18;
+
+  @include respond(sm) {
+    margin-bottom: 24px;
+
+    @include montserrat_400_24;
+  }
+}

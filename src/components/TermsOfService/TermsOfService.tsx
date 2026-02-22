@@ -39,9 +39,9 @@ export const TermsOfService = () => {
   return (
     <div className={styles.root}>
       <span className={styles.text}>
-        {t('by making a payment you agree to the')}{' '}
+        {t('common.by making a payment you agree to the')}{' '}
         <a href={AURA_TERMS_OF_SERVICE_LINK} target='_blank' rel='noopener noreferrer'>
-          {t('termsOfService')}
+          {t('common.termsOfService')}
         </a>
       </span>
 

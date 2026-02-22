@@ -1,7 +1,34 @@
 {
-  "help": "Нужна помощь?",
-  "publicOffer": "Публичная оферта",
-  "processingOfPersonalData": "Обработка персональных данных",
-  "by making a payment you agree to the": "Оплачивая вы принимаете",
-  "termsOfService": "условия сервиса"
+  "header": {
+    "help": "Нужна помощь?"
+  },
+  "footer": {
+    "publicOffer": "Публичная оферта",
+    "processingOfPersonalData": "Обработка персональных данных"
+  },
+  "common": {
+    "by making a payment you agree to the": "Оплачивая вы принимаете",
+    "termsOfService": "условия сервиса",
+    "paymentDetails": "Детали платежа"
+  },
+  "status": {
+    "paymentError": "Ошибка оплаты",
+    "returnToTheStoreWebsite": "Вернуться на сайт магазина",
+    "tryAgain": "Попробовать еще раз"
+  },
+  "validation": {
+    "cardNumberLength": "Введите 16 цифр",
+    "cardNumberInvalid": "Неверный номер карты",
+    "expiryInvalid": "Неверный срок действия карты",
+    "cvvInvalid": "CVV должен содержать 3 цифры",
+    "cardNameLatin": "Имя должно быть латиницей"
+  },
+  "cardForm": {
+    "cardNumber": "Номер карты",
+    "expireDate": "Срок действия",
+    "cardHolder": "Имя держателя карты",
+    "MMYY": "ММ/ГГ",
+    "cardHolderName": "ИМЯ ФАМИЛИЯ",
+    "payCard": "ОПЛАТИТЬ КАРТОЙ"
+  }
 }

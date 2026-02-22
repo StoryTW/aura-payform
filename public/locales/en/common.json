@@ -1,7 +1,34 @@
 {
-  "help": "Help?",
-  "publicOffer": "Public offer",
-  "processingOfPersonalData": "Processing of personal data",
-  "by making a payment you agree to the": "By making a payment, you agree to the",
-  "termsOfService": "terms of service"
+  "header": {
+    "help": "Help?"
+  },
+  "footer": {
+    "publicOffer": "Public offer",
+    "processingOfPersonalData": "Processing of personal data"
+  },
+  "common": {
+    "by making a payment you agree to the": "By making a payment, you agree to the",
+    "termsOfService": "terms of service",
+    "paymentDetails": "Payment details"
+  },
+  "status": {
+    "paymentError": "Payment error",
+    "returnToTheStoreWebsite": "Return to the store website",
+    "tryAgain": "Try again"
+  },
+  "validation": {
+    "cardNumberLength": "Enter 16 digits",
+    "cardNumberInvalid": "Invalid card number",
+    "expiryInvalid": "Invalid expiry date",
+    "cvvInvalid": "CVV must be 3 digits",
+    "cardNameLatin": "Name must be in Latin characters"
+  },
+  "cardForm": {
+    "cardNumber": "Card number",
+    "expireDate": "Expiry date",
+    "cardHolder": "Cardholder name",
+    "MMYY": "MM/YY",
+    "cardHolderName": "CARDHOLDER NAME",
+    "payCard": "PAY BY CARD"
+  }
 }

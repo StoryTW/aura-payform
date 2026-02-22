@@ -16,7 +16,7 @@ export const HelperLink = () => {
     >
       <IconQuestion />
 
-      {t('help')}
+      {t('header.help')}
     </a>
   );
 };

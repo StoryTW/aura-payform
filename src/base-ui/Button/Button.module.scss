@@ -1,0 +1,42 @@
+.button {
+  border-radius: 8px;
+  color: var(--white);
+  cursor: pointer;
+
+  @include montserrat_600_14;
+  @include transition;
+
+  &.dark {
+    background: var(--black);
+  }
+
+  &.blue {
+    background: var(--blue);
+  }
+
+  &.l {
+    padding: 16px;
+  }
+
+  &.s {
+    padding: 8px;
+  }
+
+  &.fullWidth {
+    width: 100%;
+  }
+
+  &:hover {
+    opacity: 0.9;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  // &.isLoading {
+  //   box-shadow: none;
+  //   opacity: 1;
+  // }
+}
