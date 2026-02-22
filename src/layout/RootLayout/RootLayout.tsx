@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router';
 
-import { CardForm } from '@/components/CardForm/CardForm';
 import { InvoiceInfoView } from '@/components/InvoiceInfoView/InvoiceInfoView';
+import { SbpForm } from '@/components/SbpForm/SbpForm';
 import { TermsOfService } from '@/components/TermsOfService/TermsOfService';
 import { Footer } from '@/layout/Footer/Footer';
 import { Header } from '@/layout/Header/Header';
@@ -17,7 +17,8 @@ export const RootLayout = () => {
         <div className={styles.view}>
           <Outlet />
 
-          <CardForm />
+          {/* <CardForm /> */}
+          <SbpForm />
 
           <TermsOfService />
         </div>

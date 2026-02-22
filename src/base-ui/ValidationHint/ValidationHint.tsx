@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 
 import { animateHelper } from '@/utils/helpers/animation.helper';
@@ -7,7 +8,7 @@ import styles from './ValidationHint.module.scss';
 import srcIconError from '/img/icon-error.svg';
 
 interface IValidationHint {
-  error: string;
+  error: ReactNode;
 }
 
 export const ValidationHint = ({ error }: IValidationHint) => {

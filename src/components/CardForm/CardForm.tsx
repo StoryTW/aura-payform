@@ -61,10 +61,14 @@ export const CardForm = () => {
     },
   });
 
-  const validationError = (errors.cardNumber?.message ||
-    errors.expiry?.message ||
-    errors.cvv?.message ||
-    errors.cardName?.message) as string;
+  // const validationError = (errors.cardNumber?.message ||
+  //   errors.expiry?.message ||
+  //   errors.cvv?.message ||
+  //   errors.cardName?.message) as string;
+
+  const validationErrors = Object.values(errors)
+    .map((error) => error?.message)
+    .filter(Boolean) as string[];
 
   const onSubmit: SubmitHandler<CardFormType> = (data) => {
     console.log('valid card:', data);
@@ -209,7 +213,20 @@ export const CardForm = () => {
           )}
         />
 
-        <ValidationHint error={validationError} />
+        <ValidationHint
+          error={
+            validationErrors.length > 0 && (
+              <div>
+                Ошибка валидации:
+                <ul style={{ margin: 0, padding: '0px 16px' }}>
+                  {validationErrors.map((error, index) => (
+                    <li key={index}>{error}</li>
+                  ))}
+                </ul>
+              </div>
+            )
+          }
+        />
 
         <Button
           variant='dark'

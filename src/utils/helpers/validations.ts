@@ -15,9 +15,36 @@ export const cardFormValidationSchema = (t: TFunction) =>
         message: t('validation.cardNumberInvalid'),
       }),
 
-    expiry: z.string().regex(/^\d{2}\/\d{2}$/, {
-      message: t('validation.expiryInvalid'),
-    }),
+    expiry: z
+      .string()
+      .regex(/^\d{2}\/\d{2}$/, {
+        message: t('validation.expiryInvalid'),
+      })
+      .refine(
+        (value) => {
+          const [monthStr, yearStr] = value.split('/');
+
+          const month = Number(monthStr);
+          const year = Number(yearStr);
+
+          // месяц 1–12
+          if (month < 1 || month > 12) return false;
+
+          const now = new Date();
+
+          const currentMonth = now.getMonth() + 1;
+          const currentYear = now.getFullYear() % 100;
+
+          // карта в прошлом
+          if (year < currentYear) return false;
+          if (year === currentYear && month < currentMonth) return false;
+
+          return true;
+        },
+        {
+          message: t('validation.expiryInvalid'),
+        },
+      ),
 
     cvv: z.string().regex(/^\d{3}$/, {
       message: t('validation.cvvInvalid'),
