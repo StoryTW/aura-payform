@@ -44,5 +44,8 @@
     "refreshPage": "After payment, the page will refresh automatically",
     "cardDetailsProtected": "Your card details are protected and transmitted over a secure connection",
     "orderInfoSent": "Order information has been sent to your email"
+  },
+  "notFound": {
+    "pageNotFound": "Page not found"
   }
 }
