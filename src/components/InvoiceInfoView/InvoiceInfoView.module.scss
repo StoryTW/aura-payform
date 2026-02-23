@@ -2,11 +2,11 @@
   color: var(--black);
   margin-bottom: 16px;
 
-  @include montserrat_400_18;
+  @include montserrat_500_18;
 
   @include respond(sm) {
     margin-bottom: 24px;
 
-    @include montserrat_400_24;
+    @include montserrat_500_24;
   }
 }
