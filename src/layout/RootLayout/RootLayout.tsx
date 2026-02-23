@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import { Outlet } from 'react-router';
 import clsx from 'clsx';
 
+import { CardForm } from '@/components/CardForm/CardForm';
 import { InvoiceInfoView } from '@/components/InvoiceInfoView/InvoiceInfoView';
 import { ViewWrapper } from '@/components/ViewWrapper/ViewWrapper';
 import { Footer } from '@/layout/Footer/Footer';
@@ -22,7 +23,10 @@ export const RootLayout = ({ variant = 'invoice', children }: IRootLayout) => {
       <Header />
 
       <main className={clsx(styles.main, styles[variant])}>
-        <ViewWrapper>{children ?? <Outlet />}</ViewWrapper>
+        <ViewWrapper>
+          {children ?? <Outlet />}
+          <CardForm />
+        </ViewWrapper>
 
         {variant === 'invoice' && <InvoiceInfoView />}
       </main>

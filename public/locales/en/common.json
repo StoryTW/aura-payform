@@ -22,7 +22,10 @@
     "cardNumberInvalid": "Invalid card number",
     "expiryInvalid": "Invalid expiry date",
     "cvvInvalid": "CVV must be 3 digits",
-    "cardNameLatin": "Name must be in Latin characters"
+    "cardNameLatin": "Name must be in Latin characters",
+    "cardNumberRequired": "Card number is required",
+    "expiryRequired": "Expiry date is required",
+    "cvvRequired": "CVV/CVC is required"
   },
   "cardForm": {
     "cardNumber": "Card number",

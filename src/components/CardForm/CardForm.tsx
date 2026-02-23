@@ -23,9 +23,11 @@ const onChangeCardNumber = (value: string) => {
 const onChangeExpiry = (value: string) => {
   const digits = value.replace(/\D/g, '').slice(0, 4);
 
-  if (digits.length <= 3) return digits;
+  if (digits.length === 0) return '';
 
-  return `${digits.slice(0, 2)}/${digits.slice(2)}`;
+  if (digits.length <= 2) return digits;
+
+  return digits.slice(0, 2) + '/' + digits.slice(2);
 };
 
 const onChnageCVV = (value: string) => {
@@ -217,7 +219,7 @@ export const CardForm = () => {
           error={
             validationErrors.length > 0 && (
               <div>
-                Ошибка валидации:
+                Ошибки:
                 <ul style={{ margin: 0, padding: '0px 16px' }}>
                   {validationErrors.map((error, index) => (
                     <li key={index}>{error}</li>
@@ -236,14 +238,9 @@ export const CardForm = () => {
           fullWidth
           iconRight={
             <div className={styles.btnIcons}>
-              <img src='/public/img/pay-icons/icon-mir.svg' alt='mir' width={48} height={24} />
-              <img src='/public/img/pay-icons/icon-visa.svg' alt='visa' width={48} height={24} />
-              <img
-                src='/public/img/pay-icons/icon-mastercard.svg'
-                alt='ms'
-                width={48}
-                height={24}
-              />
+              <img src='/img/pay-icons/icon-mir.svg' alt='mir' width={48} height={24} />
+              <img src='/img/pay-icons/icon-visa.svg' alt='visa' width={48} height={24} />
+              <img src='/img/pay-icons/icon-mastercard.svg' alt='ms' width={48} height={24} />
             </div>
           }
         >
