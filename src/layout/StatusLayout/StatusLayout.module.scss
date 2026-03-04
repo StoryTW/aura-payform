@@ -1,0 +1,13 @@
+.main {
+  height: calc(100vh - 100px);
+  margin: 0px 16px;
+
+  display: grid;
+  grid-template-columns: minmax(100px, 384px);
+  justify-content: center;
+
+  @include respond(sm) {
+    height: calc(100vh - 154px);
+    margin: 0px 24px;
+  }
+}

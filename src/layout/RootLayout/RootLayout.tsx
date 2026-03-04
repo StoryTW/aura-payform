@@ -17,6 +17,14 @@ interface IRootLayout {
 }
 
 export const RootLayout = ({ variant = 'invoice', children }: IRootLayout) => {
+  // const { invoiceId } = useParams<ParamsType>();
+
+  // const { data, error, isLoading } = useInvoiceInfo(String(invoiceId));
+
+  // console.log(data, 'data');
+  // console.log(isLoading, 'isLoading');
+  // console.log(error, 'error');
+
   return (
     <>
       <Header />

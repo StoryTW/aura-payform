@@ -19,6 +19,7 @@
   color: var(--black);
   box-shadow: none;
   outline: none;
+  width: 100%;
 
   @include montserrat_400_14;
   @include transition;

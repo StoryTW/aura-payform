@@ -42,6 +42,8 @@ export default defineConfig([
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',
 
+      '@typescript-eslint/no-unused-vars': 'warn',
+
       // remove unused imports automatically
       'unused-imports/no-unused-imports': 'warn',
 
@@ -86,6 +88,9 @@ export default defineConfig([
 
       // add newline after import
       'import/newline-after-import': ['warn', { count: 1 }],
+
+      //deps
+      'react-hooks/exhaustive-deps': 'off',
     },
   },
 

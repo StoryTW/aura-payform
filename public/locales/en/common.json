@@ -9,7 +9,13 @@
   "common": {
     "by making a payment you agree to the": "By making a payment, you agree to the",
     "termsOfService": "terms of service",
-    "paymentDetails": "Payment details"
+    "paymentDetails": "Payment details",
+    "order": "Order №",
+    "selectPaymentMethod": "Select a payment method",
+    "or": "OR",
+    "showDetails": "Show payment details",
+    "hideDetails": "Hide payment details",
+    "back": "Back"
   },
   "status": {
     "paymentError": "Payment error",
@@ -22,7 +28,8 @@
     "cardNumberInvalid": "Invalid card number",
     "expiryInvalid": "Invalid expiry date",
     "cvvInvalid": "CVV must be 3 digits",
-    "cardNameLatin": "Name must be in Latin characters",
+    "cardNameLatin": "Cardholder name must be in Latin characters",
+    "cardNameRequired": "Cardholder name is required",
     "cardNumberRequired": "Card number is required",
     "expiryRequired": "Expiry date is required",
     "cvvRequired": "CVV/CVC is required"
@@ -33,12 +40,15 @@
     "cardHolder": "Cardholder name",
     "MMYY": "MM/YY",
     "cardHolderName": "Full name on card",
-    "payCard": "PAY BY CARD"
+    "payCard": "PAY BY CARD",
+    "payCardTitle": "Pay by card"
   },
   "sbpForm": {
     "paymentViaSbp": "Payment via SBP",
     "scanQrCode": "Scan the QR code in the bank app",
-    "openBankApp": "Open your bank's app and scan the code to pay"
+    "openBankApp": "Open your bank's app and scan the code to pay",
+    "paySbp": "SBP",
+    "redirectToPay": "REDIRECT TO PAY"
   },
   "alert": {
     "refreshPage": "After payment, the page will refresh automatically",

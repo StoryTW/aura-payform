@@ -1,10 +1,5 @@
 .header {
   box-shadow: var(--shadow-header);
-  margin-bottom: 16px;
-
-  @include respond(sm) {
-    margin-bottom: 24px;
-  }
 }
 
 .wrapper {

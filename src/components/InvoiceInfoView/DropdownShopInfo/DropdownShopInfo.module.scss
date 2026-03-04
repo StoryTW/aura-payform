@@ -1,0 +1,30 @@
+.btn {
+  cursor: pointer;
+  outline: none;
+  padding: 6px 16px;
+  color: var(--gray);
+  box-shadow: var(--shadow-header);
+  background: var(--gray-3);
+  border: none;
+  border-radius: 8px;
+
+  @include montserrat_600_12;
+}
+
+.shopName {
+  color: var(--black);
+  margin-bottom: 8px;
+
+  @include montserrat_500_16;
+
+  @include respond(sm) {
+    @include montserrat_500_18;
+  }
+}
+
+.comment {
+  padding-bottom: 8px;
+  color: var(--gray);
+
+  @include montserrat_400_14;
+}

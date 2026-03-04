@@ -22,4 +22,66 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  .mir,
+  .visa,
+  .ms {
+    width: 48px;
+    height: 24px;
+
+    @include respond(sm) {
+      width: 68px;
+      height: 36px;
+    }
+
+    @include respond(md) {
+      width: 60px;
+      height: 32px;
+    }
+
+    @include respond(lg) {
+      width: 80px;
+      height: 40px;
+    }
+  }
+
+  .sbp {
+    width: 59px;
+    height: 24px;
+
+    @include respond(sm) {
+      width: 80px;
+      height: 36px;
+    }
+
+    @include respond(md) {
+      width: 72px;
+      height: 32px;
+    }
+
+    @include respond(lg) {
+      width: 98px;
+      height: 40px;
+    }
+  }
+
+  .pciDss {
+    width: 63px;
+    height: 24px;
+
+    @include respond(sm) {
+      width: 88px;
+      height: 36px;
+    }
+
+    @include respond(md) {
+      width: 80px;
+      height: 32px;
+    }
+
+    @include respond(lg) {
+      width: 104px;
+      height: 40px;
+    }
+  }
 }

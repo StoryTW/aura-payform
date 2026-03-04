@@ -1,0 +1,35 @@
+.btn {
+  cursor: pointer;
+  background: transparent;
+  outline: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--black);
+  padding: 0;
+  margin-bottom: 24px;
+
+  @include montserrat_400_16;
+  @include transition;
+
+  svg {
+    width: 24px;
+    height: 24px;
+    color: var(--black);
+
+    @include transition;
+  }
+
+  @include respond(sm) {
+    @include montserrat_400_18;
+  }
+
+  &:hover {
+    color: var(--blue);
+
+    svg {
+      color: var(--blue);
+    }
+  }
+}

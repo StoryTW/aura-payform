@@ -1,0 +1,49 @@
+.sbpQr {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  text-align: center;
+  color: var(--black);
+  margin-bottom: 16px;
+
+  @include montserrat_500_22;
+
+  @include respond(sm) {
+    margin-bottom: 24px;
+
+    @include montserrat_500_24;
+  }
+}
+
+.qrWrapper {
+  border-radius: 8px;
+  padding: 32px;
+  background-color: var(--gray-4);
+  margin-bottom: 24px;
+}
+
+.textInfo {
+  color: var(--black);
+  text-align: center;
+  margin-bottom: 4px;
+
+  @include montserrat_500_20;
+}
+
+.textDescription {
+  color: var(--gray);
+  text-align: center;
+  margin-bottom: 24px;
+
+  @include montserrat_400_16;
+}

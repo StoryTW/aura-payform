@@ -1,11 +1,14 @@
 import { useRef } from 'react';
 import { Controller, type SubmitHandler, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+import { useParams } from 'react-router';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import { Button } from '@/base-ui/Button/Button';
 import { InputBase } from '@/base-ui/InputBase/InputBase';
 import { ValidationHint } from '@/base-ui/ValidationHint/ValidationHint';
+import { IconsPay } from '@/components/IconsPay/IconsPay';
+import { useInvoiceProcess } from '@/query/hooks/useInvoiceProcess';
 import {
   type CardFormType,
   cardFormValidationSchema,
@@ -42,6 +45,8 @@ const onChangeCardName = (value: string) => {
 };
 
 export const CardForm = () => {
+  const { invoiceId, method } = useParams<ParamsType>();
+
   const expiryRef = useRef<HTMLInputElement>(null);
   const cvvRef = useRef<HTMLInputElement>(null);
 
@@ -63,17 +68,43 @@ export const CardForm = () => {
     },
   });
 
-  // const validationError = (errors.cardNumber?.message ||
-  //   errors.expiry?.message ||
-  //   errors.cvv?.message ||
-  //   errors.cardName?.message) as string;
+  const {
+    mutate,
+    isPending,
+    error: errorProcess,
+    isError: isErrorProcess,
+  } = useInvoiceProcess(String(invoiceId), {
+    onSuccess: (data) => {
+      console.log(data, 'dataSuccess');
+    },
+  });
 
   const validationErrors = Object.values(errors)
     .map((error) => error?.message)
     .filter(Boolean) as string[];
 
   const onSubmit: SubmitHandler<CardFormType> = (data) => {
-    console.log('valid card:', data);
+    const cardNumberClean = data.cardNumber.replace(/\s/g, '');
+    const [expiryMonthStr, expiryYear] = data.expiry.split('/');
+
+    const expiryMonth = parseInt(expiryMonthStr, 10);
+
+    const cardData = {
+      card_number: cardNumberClean,
+      cvv: data.cvv,
+      expiry_month: String(expiryMonth),
+      expiry_year: expiryYear,
+      card_holder: data.cardName,
+    };
+
+    if (invoiceId && method) {
+      mutate({
+        service_id: method,
+        card_data: {
+          ...cardData,
+        },
+      });
+    }
   };
 
   return (
@@ -217,7 +248,7 @@ export const CardForm = () => {
 
         <ValidationHint
           error={
-            validationErrors.length > 0 && (
+            (validationErrors.length > 0 && (
               <div>
                 Ошибки:
                 <ul style={{ margin: 0, padding: '0px 16px' }}>
@@ -226,7 +257,8 @@ export const CardForm = () => {
                   ))}
                 </ul>
               </div>
-            )
+            )) ||
+            (isErrorProcess && `Ошибка: ${errorProcess?.message}`)
           }
         />
 
@@ -234,15 +266,9 @@ export const CardForm = () => {
           variant='dark'
           size='l'
           type='submit'
-          disabled={!isValid}
+          disabled={!isValid || isPending}
           fullWidth
-          iconRight={
-            <div className={styles.btnIcons}>
-              <img src='/img/pay-icons/icon-mir.svg' alt='mir' width={48} height={24} />
-              <img src='/img/pay-icons/icon-visa.svg' alt='visa' width={48} height={24} />
-              <img src='/img/pay-icons/icon-mastercard.svg' alt='ms' width={48} height={24} />
-            </div>
-          }
+          iconRight={<IconsPay type='card' />}
         >
           {t('cardForm.payCard')}
         </Button>

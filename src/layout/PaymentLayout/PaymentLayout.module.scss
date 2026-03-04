@@ -1,0 +1,30 @@
+.main {
+  // height: calc(100vh - 116px);
+  margin: 16px;
+
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: start;
+  gap: 24px;
+
+  @include respond(sm) {
+    // height: calc(100vh - 178px);
+    margin: 24px;
+  }
+
+  @include respond(md) {
+    height: calc(100vh - 178px);
+    display: grid;
+    grid-template-columns: minmax(100px, 588px) minmax(100px, 424px);
+    justify-content: center;
+  }
+}
+
+.paymentView {
+  height: max-content;
+
+  @include respond(md) {
+    height: 100%;
+    max-height: 800px;
+  }
+}

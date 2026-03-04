@@ -63,8 +63,11 @@ export const cardFormValidationSchema = (t: TFunction) =>
 
     cardName: z
       .string()
-      .optional()
-      .or(z.literal(''))
+      .trim()
+      .min(1, {
+        error: t('validation.cardNameRequired'),
+      })
+      .max(50)
       .refine((v) => !v || /^[A-Za-z\s'-]+$/.test(v), {
         error: t('validation.cardNameLatin'),
       }),

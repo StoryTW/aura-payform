@@ -1,0 +1,65 @@
+.description {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+
+  color: var(--gray);
+  padding-bottom: 0px;
+  margin-bottom: 16px;
+
+  border-bottom: none;
+
+  @include montserrat_400_14;
+
+  @include respond(md) {
+    border-bottom: 1px solid var(--gray-3);
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+  }
+}
+
+.btnCopy {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  width: 16px;
+  height: 16px;
+
+  &:hover {
+    .copy {
+      color: var(--blue);
+    }
+  }
+
+  &.copied {
+    .copy {
+      opacity: 0;
+      transform: scale(0.5);
+    }
+    .check {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
+
+.icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  color: var(--black);
+
+  @include transition;
+
+  &.check {
+    opacity: 0;
+    transform: scale(0.5);
+    color: var(--success);
+  }
+}

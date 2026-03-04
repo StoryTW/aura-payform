@@ -17,6 +17,15 @@ const animateObject = {
       opacity: 1,
     },
   },
+  dropdown: {
+    hide: {
+      height: 0,
+      overflow: 'hidden',
+    },
+    show: {
+      height: 'auto',
+    },
+  },
 };
 
 export const animateHelper = (variant: IAnimateVariants) => animateObject[variant];

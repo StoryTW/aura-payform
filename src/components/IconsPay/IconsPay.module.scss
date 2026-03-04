@@ -1,0 +1,45 @@
+.iconsWrapper {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.iconCard {
+  width: 36px;
+  height: 20px;
+
+  @include respond(sm) {
+    width: 48px;
+    height: 24px;
+  }
+
+  @include respond(md) {
+    width: 36px;
+    height: 20px;
+  }
+
+  @include respond(lg) {
+    width: 48px;
+    height: 24px;
+  }
+}
+
+.iconSbp {
+  width: 48px;
+  height: 20px;
+
+  @include respond(sm) {
+    width: 59px;
+    height: 24px;
+  }
+
+  @include respond(md) {
+    width: 48px;
+    height: 20px;
+  }
+
+  @include respond(lg) {
+    width: 59px;
+    height: 24px;
+  }
+}

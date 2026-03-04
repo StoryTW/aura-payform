@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import clsx from 'clsx';
 
 import { AURA_TERMS_OF_SERVICE_LINK } from '@/utils/helpers/constants';
 
@@ -20,7 +21,7 @@ const ICONS = [
     src: srcIconVisa,
   },
   {
-    name: 'mastercard',
+    name: 'ms',
     src: srcIconMastercard,
   },
   {
@@ -28,7 +29,7 @@ const ICONS = [
     src: srcIconSbp,
   },
   {
-    name: 'pci-dss',
+    name: 'pciDss',
     src: srcIconPci,
   },
 ];
@@ -47,7 +48,14 @@ export const TermsOfService = () => {
 
       <div className={styles.icons}>
         {ICONS.map((icon) => {
-          return <img key={icon.name} src={icon.src} alt={icon.name} />;
+          return (
+            <img
+              key={icon.name}
+              src={icon.src}
+              alt={icon.name}
+              className={clsx(styles.icon, styles[icon.name])}
+            />
+          );
         })}
       </div>
     </div>

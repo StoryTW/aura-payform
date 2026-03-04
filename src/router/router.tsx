@@ -1,54 +1,53 @@
-import { createBrowserRouter, Outlet } from 'react-router';
+import { createBrowserRouter } from 'react-router';
 
-import { RootLayout } from '@/layout/RootLayout/RootLayout';
+import { ErrorLayout } from '@/layout/ErrorLayout/ErrorLayout';
+import { InvoiceDataLayout } from '@/layout/InvoiceDataLayout/InvoiceDataLayout';
+import { PaymentLayout } from '@/layout/PaymentLayout/PaymentLayout';
+import { StatusLayout } from '@/layout/StatusLayout/StatusLayout';
 import { NotFoundPage } from '@/pages/NotFoundPage/NotFoundPage';
 import { SelectPaymentMethodPage } from '@/pages/SelectPaymentMethodPage/SelectPaymentMethodPage';
+
+import { invoiceLoader } from './invoice.loader';
 
 export const router = createBrowserRouter([
   {
     path: ':invoiceId',
+    loader: invoiceLoader,
+    element: <InvoiceDataLayout />,
     children: [
       {
-        index: true,
-        element: (
-          <RootLayout variant='invoice'>
-            <SelectPaymentMethodPage />
-          </RootLayout>
-        ),
-      },
-
-      {
-        path: 'status',
-        element: (
-          <RootLayout variant='status'>
-            <Outlet />
-          </RootLayout>
-        ),
+        element: <PaymentLayout />,
         children: [
-          {
-            index: true,
-            lazy: () => import('@/pages/StatusPage/StatusPage'),
-          },
+          { index: true, element: <SelectPaymentMethodPage /> },
+          { path: ':method', lazy: () => import('@/pages/MethodPage/MethodPage') },
         ],
       },
-
+      {
+        path: 'status',
+        element: <StatusLayout />,
+        children: [{ index: true, lazy: () => import('@/pages/StatusPage/StatusPage') }],
+      },
       {
         path: '*',
+        // element: <ErrorLayout />,
         element: (
-          <RootLayout variant='error'>
+          <ErrorLayout>
             <NotFoundPage />
-          </RootLayout>
+          </ErrorLayout>
         ),
+        // children: [{ index: true, element: <NotFoundPage /> }],
       },
     ],
   },
 
   {
     path: '*',
+    // element: <ErrorLayout />,
     element: (
-      <RootLayout variant='error'>
+      <ErrorLayout>
         <NotFoundPage />
-      </RootLayout>
+      </ErrorLayout>
     ),
+    // children: [{ index: true, element: <NotFoundPage /> }],
   },
 ]);

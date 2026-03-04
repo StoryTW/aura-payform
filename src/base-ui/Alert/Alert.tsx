@@ -10,11 +10,17 @@ type AlertVariantsType = 'success' | 'error' | 'warning';
 interface IAlert extends HTMLAttributes<HTMLDivElement> {
   variant: AlertVariantsType;
   text: ReactNode;
+  fullWidth?: boolean;
 }
 
-export const Alert = ({ variant, text, className, ...props }: IAlert) => {
+export const Alert = ({ variant, text, className, fullWidth = false, ...props }: IAlert) => {
   return (
-    <div className={clsx(styles.root, styles[variant], className)} {...props}>
+    <div
+      className={clsx(styles.root, styles[variant], className, {
+        [styles.fullWidth]: fullWidth,
+      })}
+      {...props}
+    >
       <div className={styles.wrapper}>
         <div className={clsx(styles.icon, styles[variant])}>
           <IconInfo />

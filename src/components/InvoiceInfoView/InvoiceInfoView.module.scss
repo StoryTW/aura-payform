@@ -10,3 +10,29 @@
     @include montserrat_500_24;
   }
 }
+
+.amount {
+  color: var(--black);
+  margin-bottom: 4px;
+
+  @include montserrat_500_22;
+
+  @include respond(sm) {
+    margin-bottom: 8px;
+
+    @include montserrat_500_32;
+  }
+}
+
+.shopName {
+  color: var(--black);
+  margin-bottom: 8px;
+
+  @include montserrat_500_18;
+}
+
+.comment {
+  color: var(--gray);
+
+  @include montserrat_400_14;
+}
