@@ -26,6 +26,10 @@ export const InvoiceInfoView = ({ invoiceData }: IInvoiceInfoView) => {
 
       <div className={styles.amount}>{formatAmount(invoiceData.amount)}</div>
 
+      <div className={styles.commission}>
+        {t('common.commission')} {formatAmount(invoiceData.commission)}
+      </div>
+
       <DescriptionInfo id={invoiceData.id} />
 
       {isTablet ? (

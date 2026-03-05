@@ -24,6 +24,12 @@
   }
 }
 
+.commission {
+  color: var(--gray);
+
+  @include montserrat_400_14;
+}
+
 .shopName {
   color: var(--black);
   margin-bottom: 8px;
@@ -33,6 +39,7 @@
 
 .comment {
   color: var(--gray);
+  margin-bottom: 4px;
 
   @include montserrat_400_14;
 }

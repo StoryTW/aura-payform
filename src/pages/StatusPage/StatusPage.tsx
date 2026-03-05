@@ -1,13 +1,14 @@
 import { useTranslation } from 'react-i18next';
 import { useMediaQuery } from 'react-responsive';
+import { useOutletContext } from 'react-router';
 
 import { Alert } from '@/base-ui/Alert/Alert';
 import { Button } from '@/base-ui/Button/Button';
 import { DescriptionInfo } from '@/components/InvoiceInfoView/DescriptionInfo/DescriptionInfo';
+import { LoaderView } from '@/pages/StatusPage/LoaderView/LoaderView';
+import type { InvoiceInfoDto } from '@/types/response/invoice.response';
 import { QUERY_MOBILE } from '@/utils/helpers/constants';
 import { formatAmount } from '@/utils/helpers/formatAmount';
-
-import { LoaderView } from './LoaderView/LoaderView';
 
 import styles from './StatusPage.module.scss';
 
@@ -24,8 +25,15 @@ export function Component() {
 
   const isMobile = useMediaQuery({ query: QUERY_MOBILE });
 
+  const invoiceData = useOutletContext<InvoiceInfoDto>();
+
   const handleReturnToTheStore = () => {
-    console.log('return to the store');
+    if (invoiceData.success_url) {
+      window.location.href = invoiceData.success_url;
+      return;
+    }
+
+    return;
   };
 
   const handleTryAgain = () => {
@@ -50,13 +58,17 @@ export function Component() {
 
       <div className={styles.description}>{status ? t('status.thanks') : t('status.thanks')}</div>
 
-      <div className={styles.amount}>{formatAmount(1234)}</div>
+      <div className={styles.amount}>{formatAmount(invoiceData.amount)}</div>
 
-      <DescriptionInfo id={'5b1d601c-23b5-40db-8f4f-b78f4c37ca05'} noBorder />
+      <div className={styles.commission}>
+        {t('common.commission')} {formatAmount(invoiceData.commission)}
+      </div>
 
-      <div className={styles.shopName}>Тестовый магазин</div>
+      <DescriptionInfo id={invoiceData.id} noBorder />
 
-      <div className={styles.comment}>Тестовый комментарий</div>
+      <div className={styles.shopName}>{invoiceData.shop_name}</div>
+
+      <div className={styles.comment}>{invoiceData.comment}</div>
 
       <Alert
         variant={status ? 'success' : 'error'}

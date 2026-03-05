@@ -31,6 +31,12 @@
   }
 }
 
+.commission {
+  color: var(--gray);
+
+  @include montserrat_400_14;
+}
+
 .shopName {
   color: var(--black);
   margin-bottom: 4px;

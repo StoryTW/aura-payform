@@ -1,0 +1,23 @@
+.skeleton {
+  background-color: var(--skeleton);
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  &.text {
+    border-radius: 6px;
+  }
+
+  &.circle {
+    border-radius: 50%;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}

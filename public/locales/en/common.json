@@ -15,7 +15,8 @@
     "or": "OR",
     "showDetails": "Show payment details",
     "hideDetails": "Hide payment details",
-    "back": "Back"
+    "back": "Back",
+    "commission": "Commission"
   },
   "status": {
     "paymentError": "Payment error",
