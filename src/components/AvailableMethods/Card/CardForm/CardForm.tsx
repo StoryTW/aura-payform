@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { Controller, type SubmitHandler, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
-import { useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import { Button } from '@/base-ui/Button/Button';
@@ -9,11 +9,13 @@ import { InputBase } from '@/base-ui/InputBase/InputBase';
 import { ValidationHint } from '@/base-ui/ValidationHint/ValidationHint';
 import { IconsPay } from '@/components/IconsPay/IconsPay';
 import { useInvoiceProcess } from '@/query/hooks/useInvoiceProcess';
+import { PaymentDataStateEnum } from '@/utils/helpers/enums';
 import {
   type CardFormType,
   cardFormValidationSchema,
   getDigits,
 } from '@/utils/helpers/validations';
+import { useBrowserData } from '@/utils/hooks/useBrowserData';
 
 import styles from './CardForm.module.scss';
 
@@ -50,7 +52,11 @@ export const CardForm = () => {
   const expiryRef = useRef<HTMLInputElement>(null);
   const cvvRef = useRef<HTMLInputElement>(null);
 
+  const navigate = useNavigate();
+
   const { t } = useTranslation();
+
+  const browserData = useBrowserData();
 
   const {
     handleSubmit,
@@ -75,13 +81,30 @@ export const CardForm = () => {
     isError: isErrorProcess,
   } = useInvoiceProcess(String(invoiceId), {
     onSuccess: (data) => {
-      console.log(data, 'dataSuccess');
+      const redirectLink = data?.payment?.payment_data?.redirect_link;
+      const isNeed3ds = data?.payment?.payment_data?.state === PaymentDataStateEnum.NEED_3DS;
+      const isCompleted = data?.payment?.payment_data?.state === PaymentDataStateEnum.COMPLETED;
+      const isError = data?.payment?.payment_data?.state === PaymentDataStateEnum.ERROR;
+
+      if (redirectLink && isNeed3ds) {
+        window.location.href = String(data?.payment?.payment_data?.redirect_link);
+        return;
+      }
+
+      if (isCompleted || isError) {
+        navigate('status', { replace: true });
+        return;
+      }
+
+      return;
     },
   });
 
   const validationErrors = Object.values(errors)
     .map((error) => error?.message)
     .filter(Boolean) as string[];
+
+  const isDisabledButton = !isValid || isPending;
 
   const onSubmit: SubmitHandler<CardFormType> = (data) => {
     const cardNumberClean = data.cardNumber.replace(/\s/g, '');
@@ -100,9 +123,8 @@ export const CardForm = () => {
     if (invoiceId && method) {
       mutate({
         service_id: method,
-        card_data: {
-          ...cardData,
-        },
+        card_data: { ...cardData },
+        browser_data: { ...browserData },
       });
     }
   };
@@ -266,7 +288,7 @@ export const CardForm = () => {
           variant='dark'
           size='l'
           type='submit'
-          disabled={!isValid || isPending}
+          disabled={isDisabledButton}
           fullWidth
           iconRight={<IconsPay type='card' />}
         >

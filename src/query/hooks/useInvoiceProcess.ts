@@ -22,6 +22,17 @@ export const useInvoiceProcess = (
           cvv: data?.card_data?.cvv as string,
           card_holder: data?.card_data?.card_holder as string,
         },
+        browser_data: {
+          java_enabled: data?.browser_data?.java_enabled as boolean,
+          screen_width: data?.browser_data?.screen_width as number,
+          screen_height: data?.browser_data?.screen_height as number,
+          accept_header: data?.browser_data?.accept_header as string,
+          window_height: data?.browser_data?.window_height as number,
+          window_width: data?.browser_data?.window_width as number,
+          language: data?.browser_data?.language as string,
+          timezone: data?.browser_data?.timezone as number,
+          color_depth: data?.browser_data?.color_depth as number,
+        },
       }),
     ...options,
   });
