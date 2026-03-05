@@ -12,3 +12,5 @@ export const AURA_HELP_LINK = 'https://t.me/aurapay';
 export const QUERY_MOBILE = '(max-width: 480px)';
 
 export const QUERY_TABLET = '(max-width: 768px)';
+
+export const WS_STATUS_EVENT = '.invoice.status.change';

@@ -5,7 +5,7 @@ import IconInfo from '@/assets/images/icon-info.svg?react';
 
 import styles from './Alert.module.scss';
 
-type AlertVariantsType = 'success' | 'error' | 'warning';
+export type AlertVariantsType = 'success' | 'error' | 'warning';
 
 interface IAlert extends HTMLAttributes<HTMLDivElement> {
   variant: AlertVariantsType;

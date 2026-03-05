@@ -1,3 +1,9 @@
+.sbpNspk {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .title {
   text-align: center;
   color: var(--black);
@@ -12,6 +18,41 @@
   }
 }
 
+.redirectContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;
+
+  @include respond(sm) {
+    margin-bottom: 32px;
+  }
+}
+
+.img {
+  animation: spin 1.5s infinite linear;
+  margin-bottom: 8px;
+}
+
+.redirectText {
+  color: var(--black);
+
+  @include montserrat_400_14;
+}
+
+.description {
+  color: var(--black);
+  margin-bottom: 4px;
+
+  @include montserrat_400_16;
+}
+
 .btn {
   margin-bottom: 24px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
 }

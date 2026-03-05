@@ -8,6 +8,8 @@ import type { InvoiceInfoDto, InvoiceProcessDto } from '@/types/response/invoice
 
 import styles from './SbpNSPK.module.scss';
 
+import srcIconLoader from '/img/icon-loader.svg';
+
 interface SbpNSPK {
   data: InvoiceProcessDto;
 }
@@ -30,7 +32,13 @@ export const SbpNSPK = ({ data }: SbpNSPK) => {
     <div className={styles.sbpNspk}>
       <div className={styles.title}>{t('sbpForm.paymentViaSbp')}</div>
 
-      <div className={styles.description}>Возникли проблемы при оплате?</div>
+      <div className={styles.redirectContent}>
+        <img src={srcIconLoader} width={128} height={128} alt='loader' className={styles.img} />
+
+        <div className={styles.redirectText}>{t('sbpForm.redirect')}</div>
+      </div>
+
+      <div className={styles.description}>{t('sbpForm.havingProblemsWithPayment')}</div>
 
       <Button
         variant='dark'

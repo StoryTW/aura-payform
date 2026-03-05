@@ -25,7 +25,8 @@
     "returnToTheStoreWebsite": "Return to the store website",
     "tryAgain": "Try again",
     "paymentIsProcessed": "Payment is being processed, please wait.",
-    "dontClosePage": "Please don't close this page"
+    "dontClosePage": "Please don't close this page",
+    "operationNotCompleted": "The operation could not be completed. Please try again."
   },
   "validation": {
     "cardNumberLength": "Enter 16 digits",
@@ -52,7 +53,9 @@
     "scanQrCode": "Scan the QR code in the bank app",
     "openBankApp": "Open your bank's app and scan the code to pay",
     "paySbp": "SBP",
-    "redirectToPay": "REDIRECT TO PAY"
+    "redirectToPay": "REDIRECT TO PAY",
+    "redirect": "Redirect...",
+    "havingProblemsWithPayment": "Having problems with payment?"
   },
   "alert": {
     "refreshPage": "After payment, the page will refresh automatically",
