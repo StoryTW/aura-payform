@@ -1,2 +1,80 @@
-.root {
+.img {
+  margin-bottom: 24px;
+}
+
+.title {
+  color: var(--black);
+  margin-bottom: 4px;
+
+  @include montserrat_500_22;
+
+  @include respond(sm) {
+    @include montserrat_500_24;
+  }
+}
+
+.description {
+  color: var(--black);
+  margin-bottom: 24px;
+
+  @include montserrat_400_14;
+}
+
+.amount {
+  color: var(--black);
+  margin-bottom: 8px;
+
+  @include montserrat_500_28;
+
+  @include respond(sm) {
+    @include montserrat_500_32;
+  }
+}
+
+.shopName {
+  color: var(--black);
+  margin-bottom: 4px;
+
+  @include montserrat_500_16;
+
+  @include respond(sm) {
+    margin-bottom: 8px;
+
+    @include montserrat_500_18;
+  }
+}
+
+.comment {
+  color: var(--gray);
+  margin-bottom: 16px;
+
+  @include montserrat_400_14;
+
+  @include respond(sm) {
+    margin-bottom: 24px;
+  }
+}
+
+.alert {
+  margin-bottom: 16px;
+
+  @include respond(sm) {
+    margin-bottom: 24px;
+  }
+}
+
+.btnTryAgain {
+  margin-bottom: 16px;
+
+  @include respond(sm) {
+    margin-bottom: 24px;
+  }
+}
+
+.reasons {
+  @include montserrat_600_12;
+
+  ul {
+    @include montserrat_400_12;
+  }
 }

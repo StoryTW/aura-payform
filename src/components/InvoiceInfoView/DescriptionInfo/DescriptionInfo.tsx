@@ -9,15 +9,20 @@ import styles from './DescriptionInfo.module.scss';
 
 interface IDescriptionInfo {
   id: string;
+  noBorder?: boolean;
 }
 
-export const DescriptionInfo = ({ id }: IDescriptionInfo) => {
+export const DescriptionInfo = ({ id, noBorder = false }: IDescriptionInfo) => {
   const { t } = useTranslation();
 
   const { isCopied, handleCopy } = useClipboard();
 
   return (
-    <div className={styles.description}>
+    <div
+      className={clsx(styles.description, {
+        [styles.noBorder]: noBorder,
+      })}
+    >
       {`${t('common.order')} ${id}`}
 
       <button

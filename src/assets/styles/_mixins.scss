@@ -129,6 +129,14 @@ $breakpoints: (
   letter-spacing: -0.02em;
 }
 
+@mixin montserrat_500_28 {
+  font-family: var(--font-montserrat);
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+}
+
 @mixin montserrat_500_32 {
   font-family: var(--font-montserrat);
   font-size: 32px;

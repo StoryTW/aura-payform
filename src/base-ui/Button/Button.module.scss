@@ -6,6 +6,8 @@
   align-items: center;
   justify-content: center;
   gap: 8px;
+  border: none;
+  outline: none;
 
   @include montserrat_600_14;
   @include transition;

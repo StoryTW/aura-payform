@@ -20,8 +20,11 @@
   "status": {
     "paymentError": "Payment error",
     "paymentSuccess": "Payment was successful",
+    "thanks": "Thank you for your purchase. Your payment is processed.",
     "returnToTheStoreWebsite": "Return to the store website",
-    "tryAgain": "Try again"
+    "tryAgain": "Try again",
+    "paymentIsProcessed": "Payment is being processed, please wait.",
+    "dontClosePage": "Please don't close this page"
   },
   "validation": {
     "cardNumberLength": "Enter 16 digits",
@@ -53,7 +56,12 @@
   "alert": {
     "refreshPage": "After payment, the page will refresh automatically",
     "cardDetailsProtected": "Your card details are protected and transmitted over a secure connection",
-    "orderInfoSent": "Order information has been sent to your email"
+    "orderInfoSent": "Order information has been sent to your email",
+    "possibleReasons": "Possible reasons:",
+    "insufficientFunds": "Insufficient funds in the account",
+    "incorrectDetails": "Incorrect card details",
+    "blocked": "Card blocked or expired",
+    "limit": "Transaction limit exceeded"
   },
   "notFound": {
     "pageNotFound": "Page not found"
