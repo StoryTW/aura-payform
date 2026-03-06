@@ -7,52 +7,26 @@
 .title {
   text-align: center;
   color: var(--black);
-  margin-bottom: 16px;
+  margin-bottom: 32px;
 
   @include montserrat_500_22;
-
-  @include respond(sm) {
-    margin-bottom: 24px;
-
-    @include montserrat_500_24;
-  }
-}
-
-.redirectContent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 24px;
-
-  @include respond(sm) {
-    margin-bottom: 32px;
-  }
-}
-
-.img {
-  animation: spin 1.5s infinite linear;
-  margin-bottom: 8px;
 }
 
 .redirectText {
+  text-align: center;
   color: var(--black);
+  margin-bottom: 32px;
 
-  @include montserrat_400_14;
+  @include montserrat_400_18;
 }
 
 .description {
   color: var(--black);
   margin-bottom: 4px;
 
-  @include montserrat_400_16;
+  @include montserrat_400_14;
 }
 
 .btn {
   margin-bottom: 24px;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(1turn);
-  }
 }

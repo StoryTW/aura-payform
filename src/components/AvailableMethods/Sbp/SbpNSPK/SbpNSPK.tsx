@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useOutletContext } from 'react-router';
 
@@ -7,8 +8,6 @@ import { TermsOfService } from '@/components/TermsOfService/TermsOfService';
 import type { InvoiceContextType, InvoiceProcessDto } from '@/types/response/invoice.response';
 
 import styles from './SbpNSPK.module.scss';
-
-import srcIconLoader from '/img/icon-loader.svg';
 
 interface SbpNSPK {
   data: InvoiceProcessDto;
@@ -28,15 +27,23 @@ export const SbpNSPK = ({ data }: SbpNSPK) => {
     }
   };
 
+  useEffect(() => {
+    if (paymentLink) {
+      const timer = setTimeout(() => {
+        window.location.href = paymentLink;
+      }, 2000);
+
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+  }, [paymentLink]);
+
   return (
     <div className={styles.sbpNspk}>
       <div className={styles.title}>{t('sbpForm.paymentViaSbp')}</div>
 
-      <div className={styles.redirectContent}>
-        <img src={srcIconLoader} width={128} height={128} alt='loader' className={styles.img} />
-
-        <div className={styles.redirectText}>{t('sbpForm.redirect')}</div>
-      </div>
+      <div className={styles.redirectText}>{t('sbpForm.redirect')}</div>
 
       <div className={styles.description}>{t('sbpForm.havingProblemsWithPayment')}</div>
 

@@ -1,7 +1,7 @@
 export const formatAmount = (
   price: number,
   currency = 'RUB',
-  minimumFraction = 0,
+  minimumFraction = 2,
   symbol = '.',
 ) => {
   return new Intl.NumberFormat('ru-RU', {
