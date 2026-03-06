@@ -16,7 +16,7 @@ export const InvoiceDataLayout = () => {
 
       {invoice.isLoading && <GlobalLoader />}
 
-      <Outlet context={invoice} />
+      {invoice.isSuccess && <Outlet context={invoice} />}
 
       <Footer />
     </>

@@ -65,7 +65,7 @@ export function Component() {
 
   useEffect(() => {
     if (isSelectMethod || invoiceData.state === StateEnum.SELECT_METHOD) {
-      navigate(`${invoiceId}`, { replace: true });
+      navigate(`/${invoiceId}`, { replace: true });
     }
 
     if (isPaid || invoiceData.state === StateEnum.PAID) {

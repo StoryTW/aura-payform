@@ -41,9 +41,9 @@ export const Button = ({
       disabled={disabled || isLoading}
       {...props}
     >
-      {iconLeft && <>{iconLeft}</>}
+      {iconLeft && !isLoading && <>{iconLeft}</>}
       {isLoading ? <Spinner /> : children}
-      {iconRight && <>{iconRight}</>}
+      {iconRight && !isLoading && <>{iconRight}</>}
     </button>
   );
 };

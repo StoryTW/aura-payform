@@ -61,7 +61,7 @@ export const CardForm = () => {
   const {
     handleSubmit,
     setValue,
-    formState: { errors, isValid },
+    formState: { errors, isValid, isSubmitting },
     control,
   } = useForm<CardFormType>({
     resolver: zodResolver(cardFormValidationSchema(t)),
@@ -104,7 +104,7 @@ export const CardForm = () => {
     .map((error) => error?.message)
     .filter(Boolean) as string[];
 
-  const isDisabledButton = !isValid || isPending;
+  const isDisabledButton = !isValid || isPending || isSubmitting;
 
   const onSubmit: SubmitHandler<CardFormType> = (data) => {
     const cardNumberClean = data.cardNumber.replace(/\s/g, '');
@@ -288,6 +288,7 @@ export const CardForm = () => {
           variant='dark'
           size='l'
           type='submit'
+          isLoading={isPending}
           disabled={isDisabledButton}
           fullWidth
           iconRight={<IconsPay type='card' />}

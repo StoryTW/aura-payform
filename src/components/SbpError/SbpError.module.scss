@@ -1,0 +1,13 @@
+.title {
+  text-align: center;
+  color: var(--black);
+  margin-bottom: 16px;
+
+  @include montserrat_500_22;
+
+  @include respond(sm) {
+    margin-bottom: 24px;
+
+    @include montserrat_500_24;
+  }
+}

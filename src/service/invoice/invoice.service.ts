@@ -7,7 +7,7 @@ export const InvoiceService = {
     return api.get<InvoiceInfoDto>(`pay-form/invoice/${invoiceId}`);
   },
 
-  process(invoiceId: string, data: InvoiceProcessRequest) {
-    return api.post<InvoiceProcessDto>(`pay-form/invoice/${invoiceId}/process`, data);
+  process(invoiceId: string, payload: InvoiceProcessRequest) {
+    return api.post<InvoiceProcessDto>(`pay-form/invoice/${invoiceId}/process`, payload);
   },
 };

@@ -3,10 +3,11 @@ import axios from 'axios';
 import { ApiError } from './api-error';
 
 export const axiosConfig = axios.create({
-  baseURL: import.meta.env.VITE_BASE_URL,
+  baseURL: import.meta.env.VITE_API_URL,
   timeout: 25000,
   headers: {
     'Content-Type': 'application/json',
+    'X-Frame-Options': 'DENY',
   },
 });
 
@@ -47,6 +48,6 @@ axiosConfig.interceptors.response.use(
       throw new ApiError(data?.message ?? 'Request failed', error.response.status, data?.data);
     }
 
-    throw new ApiError('Network error');
+    throw new ApiError('Network error', 500);
   },
 );
