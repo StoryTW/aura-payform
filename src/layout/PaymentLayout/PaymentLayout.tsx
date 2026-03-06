@@ -7,16 +7,16 @@ import type { InvoiceContextType } from '@/types/response/invoice.response';
 import styles from './PaymentLayout.module.scss';
 
 export const PaymentLayout = () => {
-  const { data: invoiceData, isSuccess } = useOutletContext<InvoiceContextType>();
+  const invoice = useOutletContext<InvoiceContextType>();
 
   return (
     <>
       <main className={styles.main}>
         <ViewWrapper className={styles.paymentView}>
-          <Outlet context={invoiceData} />
+          <Outlet context={invoice} />
         </ViewWrapper>
 
-        {isSuccess && <InvoiceInfoView invoiceData={invoiceData} />}
+        {invoice.isSuccess && <InvoiceInfoView invoiceData={invoice.data} />}
       </main>
     </>
   );
