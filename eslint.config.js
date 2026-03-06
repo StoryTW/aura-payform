@@ -42,12 +42,11 @@ export default defineConfig([
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',
 
-      '@typescript-eslint/no-unused-vars': 'warn',
-
       // remove unused imports automatically
-      'unused-imports/no-unused-imports': 'warn',
+      // 'unused-imports/no-unused-imports': 'warn',
 
       // optional: warn on unused vars but allow _
+      '@typescript-eslint/no-unused-vars': 'warn',
       'unused-imports/no-unused-vars': [
         'warn',
         {
@@ -91,14 +90,6 @@ export default defineConfig([
 
       //deps
       'react-hooks/exhaustive-deps': 'off',
-
-      //max props pre line
-      'react/jsx-max-props-per-line': [
-        'warn',
-        {
-          maximum: 2,
-        },
-      ],
     },
   },
 
