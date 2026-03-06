@@ -16,14 +16,15 @@
     "showDetails": "Показать детали платежа",
     "hideDetails": "Скрыть детали платежа",
     "back": "Назад",
-    "commission": "Комиссия"
+    "commission": "Комиссия",
+    "methodNotFound": "Данный метод не найден",
+    "backAndSelectAnotherMethod": "Вернитесь назад и выберите другой метод оплаты"
   },
   "status": {
     "paymentError": "Ошибка оплаты",
     "paymentSuccess": "Оплата прошла успешно",
     "thanks": "Спасибо за покупку. Ваш платёж обработан.",
     "returnToTheStoreWebsite": "Вернуться на сайт магазина",
-    "tryAgain": "Попробовать еще раз",
     "paymentIsProcessed": "Платеж находится в обработке, ожидайте.",
     "dontClosePage": "Пожалуйста не закрывайте эту страницу",
     "operationNotCompleted": "Не удалось завершить операцию. Попробуйте ещё раз."

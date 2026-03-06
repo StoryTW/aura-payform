@@ -1,4 +1,5 @@
 import { Card } from '@/components/AvailableMethods/Card/Card';
+import { NotFoundMethod } from '@/components/AvailableMethods/NotFoundMethod/NotFoundMethod';
 import { Sbp } from '@/components/AvailableMethods/Sbp/Sbp';
 import { ServiceEnum, type ServiceEnumType } from '@/utils/helpers/enums';
 
@@ -13,6 +14,6 @@ export const AvailableMethods = ({ method }: IAvailableMethods) => {
     case ServiceEnum.SBP:
       return <Sbp />;
     default:
-      return null;
+      return <NotFoundMethod />;
   }
 };

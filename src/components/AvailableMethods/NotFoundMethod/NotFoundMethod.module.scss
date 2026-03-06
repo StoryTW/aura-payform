@@ -1,0 +1,29 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 24px;
+  height: 100%;
+}
+
+.title {
+  text-align: center;
+  color: var(--black);
+  margin-bottom: 16px;
+
+  @include montserrat_500_22;
+
+  @include respond(sm) {
+    margin-bottom: 24px;
+
+    @include montserrat_500_24;
+  }
+}
+
+.description {
+  text-align: center;
+  color: var(--gray);
+  margin-bottom: 16px;
+
+  @include montserrat_400_16;
+}

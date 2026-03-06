@@ -1,17 +1,19 @@
 import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router';
+import { useNavigate, useParams } from 'react-router';
 
 import IconChevron from '@/assets/images/icon-chevron-left.svg?react';
 
 import styles from './ButtonBack.module.scss';
 
 export const ButtonBack = () => {
+  const { invoiceId } = useParams<ParamsType>();
+
   const { t } = useTranslation();
 
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate(-1);
+    navigate(`/${invoiceId}`);
   };
 
   return (

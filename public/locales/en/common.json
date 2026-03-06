@@ -16,14 +16,15 @@
     "showDetails": "Show payment details",
     "hideDetails": "Hide payment details",
     "back": "Back",
-    "commission": "Commission"
+    "commission": "Commission",
+    "methodNotFound": "This method was not found",
+    "backAndSelectAnotherMethod": "Go back and select another payment method"
   },
   "status": {
     "paymentError": "Payment error",
     "paymentSuccess": "Payment was successful",
     "thanks": "Thank you for your purchase. Your payment is processed.",
     "returnToTheStoreWebsite": "Return to the store website",
-    "tryAgain": "Try again",
     "paymentIsProcessed": "Payment is being processed, please wait.",
     "dontClosePage": "Please don't close this page",
     "operationNotCompleted": "The operation could not be completed. Please try again."

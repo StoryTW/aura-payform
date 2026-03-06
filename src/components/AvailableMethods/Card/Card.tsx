@@ -12,7 +12,7 @@ export const Card = () => {
 
   return (
     <div className={styles.card}>
-      <div className={styles.content}>
+      <div>
         <ButtonBack />
 
         <div className={styles.title}>{t('cardForm.payCardTitle')}</div>

@@ -16,7 +16,6 @@ import { formatAmount } from '@/utils/helpers/formatAmount';
 import styles from './StatusPage.module.scss';
 
 import srcIconArrow from '/img/icon-arrow-right.svg';
-import srcIconRepeat from '/img/icon-repeat.svg';
 import srcIconError from '/img/status-icons/icon-status-error.svg';
 import srcIconSuccess from '/img/status-icons/icon-status-success.svg';
 
@@ -49,7 +48,7 @@ export function Component() {
   const { status, initSubscription } = useInvoiceStatusStore();
 
   const isWaitPay = status === StateEnum.WAIT_PAY;
-  const isExpired = status === StateEnum.EXPIRED;
+  // const isExpired = status === StateEnum.EXPIRED;
   const isPaid = status === StateEnum.PAID;
   const isSelectMethod = status === StateEnum.SELECT_METHOD;
 
@@ -62,10 +61,6 @@ export function Component() {
     }
 
     return;
-  };
-
-  const handleTryAgain = () => {
-    console.log('try again');
   };
 
   useEffect(() => {
@@ -137,19 +132,6 @@ export function Component() {
         }
         className={styles.alert}
       />
-
-      {isExpired && (
-        <Button
-          variant='dark'
-          size={isMobile ? 's' : 'l'}
-          fullWidth
-          iconLeft={<img src={srcIconRepeat} width={24} height={24} alt='repeat' />}
-          className={styles.btnTryAgain}
-          onClick={handleTryAgain}
-        >
-          {t('status.tryAgain')}
-        </Button>
-      )}
 
       <Button
         variant='blue'
