@@ -67,7 +67,9 @@
     "blocked": "Card blocked or expired",
     "limit": "Transaction limit exceeded"
   },
-  "notFound": {
-    "pageNotFound": "Page not found"
+  "errorPage": {
+    "error": "Error",
+    "pageNotFound": "Page not found",
+    "status": "Status:"
   }
 }

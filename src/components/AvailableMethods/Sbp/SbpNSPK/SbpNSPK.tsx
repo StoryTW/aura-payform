@@ -4,7 +4,7 @@ import { useOutletContext } from 'react-router';
 import { Button } from '@/base-ui/Button/Button';
 import { IconsPay } from '@/components/IconsPay/IconsPay';
 import { TermsOfService } from '@/components/TermsOfService/TermsOfService';
-import type { InvoiceInfoDto, InvoiceProcessDto } from '@/types/response/invoice.response';
+import type { InvoiceContextType, InvoiceProcessDto } from '@/types/response/invoice.response';
 
 import styles from './SbpNSPK.module.scss';
 
@@ -17,10 +17,10 @@ interface SbpNSPK {
 export const SbpNSPK = ({ data }: SbpNSPK) => {
   const { t } = useTranslation();
 
-  const invoiceData = useOutletContext<InvoiceInfoDto>();
+  const { data: invoiceData } = useOutletContext<InvoiceContextType>();
 
   const paymentLink =
-    data?.payment?.payment_data?.payment_link || invoiceData.payment?.payment_data?.payment_link;
+    data?.payment?.payment_data?.payment_link || invoiceData?.payment?.payment_data?.payment_link;
 
   const handleNavigateToNSPK = () => {
     if (paymentLink) {

@@ -1,0 +1,28 @@
+.loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.qrWrapperSkeleton {
+  margin-bottom: 24px;
+}
+
+.titleSkeleton {
+  margin-bottom: 24px;
+}
+
+.textInfoSkeleton {
+  margin-bottom: 4px;
+}
+
+.textDescriptionSkeleton {
+  margin-bottom: 24px;
+}

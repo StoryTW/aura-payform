@@ -1,3 +1,5 @@
+import type { UseQueryResult } from '@tanstack/react-query';
+
 import type {
   PaymentDataStateEnumType,
   ServiceEnumType,
@@ -42,3 +44,5 @@ export interface PaymentDto {
     state?: PaymentDataStateEnumType;
   };
 }
+
+export type InvoiceContextType = UseQueryResult<InvoiceInfoDto, ApiError>;

@@ -5,7 +5,7 @@ import { useNavigate, useOutletContext } from 'react-router';
 import { Button } from '@/base-ui/Button/Button';
 import { IconsPay } from '@/components/IconsPay/IconsPay';
 import { TermsOfService } from '@/components/TermsOfService/TermsOfService';
-import type { InvoiceInfoDto } from '@/types/response/invoice.response';
+import type { InvoiceContextType } from '@/types/response/invoice.response';
 import { ServiceEnum, type ServiceEnumType, StateEnum } from '@/utils/helpers/enums';
 
 import styles from './SelectPaymentMethodPage.module.scss';
@@ -15,7 +15,7 @@ export const SelectPaymentMethodPage = () => {
 
   const navigate = useNavigate();
 
-  const invoiceData = useOutletContext<InvoiceInfoDto>();
+  const { data: invoiceData } = useOutletContext<InvoiceContextType>();
 
   const availableMethods = [
     {
@@ -40,7 +40,7 @@ export const SelectPaymentMethodPage = () => {
   };
 
   useEffect(() => {
-    if (invoiceData.state === StateEnum.PAID || invoiceData.state === StateEnum.EXPIRED) {
+    if (invoiceData?.state === StateEnum.PAID || invoiceData?.state === StateEnum.EXPIRED) {
       navigate('status', { replace: true });
     }
   }, []);

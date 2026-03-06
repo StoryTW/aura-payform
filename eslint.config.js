@@ -91,6 +91,14 @@ export default defineConfig([
 
       //deps
       'react-hooks/exhaustive-deps': 'off',
+
+      //max props pre line
+      'react/jsx-max-props-per-line': [
+        'warn',
+        {
+          maximum: 2,
+        },
+      ],
     },
   },
 

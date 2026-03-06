@@ -1,0 +1,16 @@
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 130px);
+
+  img {
+    animation: spin 1.5s infinite linear;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(1turn);
+  }
+}

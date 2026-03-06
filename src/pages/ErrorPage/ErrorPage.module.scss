@@ -1,0 +1,43 @@
+.main {
+  height: calc(100vh - 132px);
+  margin: 16px;
+
+  display: grid;
+  grid-template-columns: minmax(100px, 384px);
+  justify-content: center;
+
+  @include respond(sm) {
+    height: calc(100vh - 178px);
+    margin: 24px;
+  }
+}
+
+.errorPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.errorImg {
+  margin-bottom: 24px;
+}
+
+.title {
+  margin: 0;
+  color: var(--black);
+
+  @include montserrat_600_32;
+}
+
+.status {
+  color: var(--error);
+  margin-bottom: 24px;
+
+  @include montserrat_600_12;
+}
+
+.description {
+  color: var(--black);
+
+  @include montserrat_400_18;
+}

@@ -4,7 +4,7 @@ import { QRCodeCanvas } from 'qrcode.react';
 
 import { Alert } from '@/base-ui/Alert/Alert';
 import { TermsOfService } from '@/components/TermsOfService/TermsOfService';
-import type { InvoiceInfoDto, InvoiceProcessDto } from '@/types/response/invoice.response';
+import type { InvoiceContextType, InvoiceProcessDto } from '@/types/response/invoice.response';
 
 import styles from './SbpQR.module.scss';
 
@@ -15,10 +15,10 @@ interface ISbpQR {
 export const SbpQR = ({ data }: ISbpQR) => {
   const { t } = useTranslation();
 
-  const invoiceData = useOutletContext<InvoiceInfoDto>();
+  const { data: invoiceData } = useOutletContext<InvoiceContextType>();
 
   const paymentLink =
-    data?.payment?.payment_data?.payment_link || invoiceData.payment?.payment_data?.payment_link;
+    data?.payment?.payment_data?.payment_link || invoiceData?.payment?.payment_data?.payment_link;
 
   return (
     <div className={styles.sbpQr}>
