@@ -1,4 +1,5 @@
 import type { HTMLAttributes, ReactNode } from 'react';
+
 import clsx from 'clsx';
 
 import IconInfo from '@/assets/images/icon-info.svg?react';
@@ -13,7 +14,9 @@ interface IAlert extends HTMLAttributes<HTMLDivElement> {
   fullWidth?: boolean;
 }
 
-export const Alert = ({ variant, text, className, fullWidth = false, ...props }: IAlert) => {
+export const Alert = ({
+  variant, text, className, fullWidth = false, ...props
+}: IAlert) => {
   return (
     <div
       className={clsx(styles.root, styles[variant], className, {

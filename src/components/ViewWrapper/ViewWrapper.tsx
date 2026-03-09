@@ -1,4 +1,5 @@
 import type { HTMLAttributes, ReactNode } from 'react';
+
 import clsx from 'clsx';
 
 import styles from './ViewWrapper.module.scss';

@@ -1,5 +1,5 @@
 import valid from 'card-validator';
-import { type TFunction } from 'i18next';
+import type { TFunction } from 'i18next';
 import { z } from 'zod';
 
 export const getDigits = (value: string) => value.replace(/\D/g, '');
@@ -41,7 +41,7 @@ export const cardFormValidationSchema = (t: TFunction) =>
           const currentMonth = now.getMonth() + 1;
           const currentYear = now.getFullYear() % 100;
 
-          // карта в прошлом
+          // карта прошлого года
           if (year < currentYear) return false;
           if (year === currentYear && month < currentMonth) return false;
 

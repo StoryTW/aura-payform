@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+
 import clsx from 'clsx';
 
 import IconClipboardCheck from '@/assets/images/icon-clipboard-check.svg?react';

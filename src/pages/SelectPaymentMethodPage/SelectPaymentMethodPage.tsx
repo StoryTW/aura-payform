@@ -33,6 +33,7 @@ export const SelectPaymentMethodPage = () => {
   const handleNavigate = (service: ServiceEnumType) => {
     if (service === ServiceEnum.CARD) {
       navigate(service);
+
       return;
     }
 

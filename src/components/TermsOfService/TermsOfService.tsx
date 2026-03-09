@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+
 import clsx from 'clsx';
 
 import { AURA_TERMS_OF_SERVICE_LINK } from '@/utils/helpers/constants';
@@ -40,7 +41,8 @@ export const TermsOfService = () => {
   return (
     <div className={styles.root}>
       <span className={styles.text}>
-        {t('common.by making a payment you agree to the')}{' '}
+        {t('common.by making a payment you agree to the')}
+        {' '}
         <a href={AURA_TERMS_OF_SERVICE_LINK} target='_blank' rel='noopener noreferrer'>
           {t('common.termsOfService')}
         </a>

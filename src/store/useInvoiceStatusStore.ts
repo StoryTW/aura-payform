@@ -21,9 +21,9 @@ export const useInvoiceStatusStore = create<IInvoiceStatusStore>((set, get) => (
 
     echo.channel(channelName).listen(WS_STATUS_EVENT, (e: { status: StateEnumType }) => {
       if (
-        e.status === StateEnum.PAID ||
-        e.status === StateEnum.EXPIRED ||
-        e.status === StateEnum.SELECT_METHOD
+        e.status === StateEnum.PAID
+        || e.status === StateEnum.EXPIRED
+        || e.status === StateEnum.SELECT_METHOD
       ) {
         get().setStatus(e.status);
       }

@@ -1,4 +1,5 @@
 import type { ButtonHTMLAttributes, ReactNode } from 'react';
+
 import clsx from 'clsx';
 
 import { Spinner } from '@/base-ui/Spinner/Spinner';
@@ -42,7 +43,9 @@ export const Button = ({
       {...props}
     >
       {iconLeft && !isLoading && <>{iconLeft}</>}
-      {isLoading ? <Spinner /> : children}
+      {isLoading
+        ? <Spinner />
+        : children}
       {iconRight && !isLoading && <>{iconRight}</>}
     </button>
   );

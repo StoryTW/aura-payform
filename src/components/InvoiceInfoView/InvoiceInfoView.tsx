@@ -27,20 +27,24 @@ export const InvoiceInfoView = ({ invoiceData }: IInvoiceInfoView) => {
       <div className={styles.amount}>{formatAmount(invoiceData.amount)}</div>
 
       <div className={styles.commission}>
-        {t('common.commission')} {formatAmount(invoiceData.commission)}
+        {t('common.commission')}
+        {' '}
+        {formatAmount(invoiceData.commission)}
       </div>
 
       <DescriptionInfo id={invoiceData.id} />
 
-      {isTablet ? (
-        <DropdownShopInfo shopName={invoiceData.shop_name} comment={invoiceData.comment} />
-      ) : (
-        <>
-          <div className={styles.shopName}>{invoiceData.shop_name}</div>
+      {isTablet
+        ? (
+          <DropdownShopInfo shopName={invoiceData.shop_name} comment={invoiceData.comment} />
+        )
+        : (
+          <>
+            <div className={styles.shopName}>{invoiceData.shop_name}</div>
 
-          <div className={styles.comment}>{invoiceData.comment}</div>
-        </>
-      )}
+            <div className={styles.comment}>{invoiceData.comment}</div>
+          </>
+        )}
     </ViewWrapper>
   );
 };

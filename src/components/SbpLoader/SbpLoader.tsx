@@ -9,7 +9,7 @@ import styles from './SbpLoader.module.scss';
 export const SbpLoader = () => {
   const isMobile = useMediaQuery({ query: QUERY_MOBILE });
 
-  if (isMobile)
+  if (isMobile) {
     return (
       <div className={styles.loader}>
         <div className={styles.wrapper}>
@@ -25,6 +25,7 @@ export const SbpLoader = () => {
         <TermsOfService />
       </div>
     );
+  }
 
   return (
     <div className={styles.loader}>

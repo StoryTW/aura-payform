@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { Controller, type SubmitHandler, useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router';
+
 import { zodResolver } from '@hookform/resolvers/zod';
 
 import { Button } from '@/base-ui/Button/Button';
@@ -88,11 +89,13 @@ export const CardForm = () => {
 
       if (redirectLink && isNeed3ds) {
         window.location.href = String(data?.payment?.payment_data?.redirect_link);
+
         return;
       }
 
       if (isCompleted || isError) {
         navigate('status', { replace: true });
+
         return;
       }
 
@@ -279,8 +282,8 @@ export const CardForm = () => {
                   ))}
                 </ul>
               </div>
-            )) ||
-            (isErrorProcess && `Ошибка: ${errorProcess?.message}`)
+            ))
+            || (isErrorProcess && `Ошибка: ${errorProcess?.message}`)
           }
         />
 

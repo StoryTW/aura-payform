@@ -57,6 +57,7 @@ export function Component() {
   const handleReturnToTheStore = () => {
     if (invoiceData.success_url) {
       window.location.href = invoiceData.success_url;
+
       return;
     }
 
@@ -104,7 +105,9 @@ export function Component() {
       <div className={styles.amount}>{formatAmount(invoiceData.amount)}</div>
 
       <div className={styles.commission}>
-        {t('common.commission')} {formatAmount(invoiceData.commission)}
+        {t('common.commission')}
+        {' '}
+        {formatAmount(invoiceData.commission)}
       </div>
 
       <DescriptionInfo id={invoiceData.id} noBorder />
@@ -116,26 +119,30 @@ export function Component() {
       <Alert
         variant={config?.alertVariant as AlertVariantsType}
         text={
-          status ? (
-            t('alert.orderInfoSent')
-          ) : (
-            <div className={styles.reasons}>
-              {t('alert.possibleReasons')}
-              <ul style={{ margin: 0, padding: '0px 16px' }}>
-                <li>{t('alert.insufficientFunds')}</li>
-                <li>{t('alert.incorrectDetails')}</li>
-                <li>{t('alert.blocked')}</li>
-                <li>{t('alert.limit')}</li>
-              </ul>
-            </div>
-          )
+          status
+            ? (
+              t('alert.orderInfoSent')
+            )
+            : (
+              <div className={styles.reasons}>
+                {t('alert.possibleReasons')}
+                <ul style={{ margin: 0, padding: '0px 16px' }}>
+                  <li>{t('alert.insufficientFunds')}</li>
+                  <li>{t('alert.incorrectDetails')}</li>
+                  <li>{t('alert.blocked')}</li>
+                  <li>{t('alert.limit')}</li>
+                </ul>
+              </div>
+            )
         }
         className={styles.alert}
       />
 
       <Button
         variant='blue'
-        size={isMobile ? 's' : 'l'}
+        size={isMobile
+          ? 's'
+          : 'l'}
         fullWidth
         iconRight={<img src={srcIconArrow} width={24} height={24} alt='arrow' />}
         onClick={handleReturnToTheStore}

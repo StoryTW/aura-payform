@@ -1,4 +1,5 @@
 import type { InputHTMLAttributes, Ref } from 'react';
+
 import clsx from 'clsx';
 
 import styles from './InputBase.module.scss';

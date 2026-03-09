@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { useNavigate, useOutletContext, useParams } from 'react-router';
+
 import { useQueryClient } from '@tanstack/react-query';
 
 import { SbpError } from '@/components/SbpError/SbpError';
@@ -28,7 +29,9 @@ export const Sbp = () => {
 
   const { status, initSubscription } = useInvoiceStatusStore();
 
-  const { data, mutate, isPending, isSuccess, isError, error } = useInvoiceProcess(
+  const {
+    data, mutate, isPending, isSuccess, isError, error,
+  } = useInvoiceProcess(
     String(invoiceId),
     {
       onSuccess: (data) => {
@@ -41,11 +44,11 @@ export const Sbp = () => {
     },
   );
 
-  const isPaidOrExpired =
-    status === StateEnum.PAID ||
-    status === StateEnum.EXPIRED ||
-    invoiceData?.state === StateEnum.PAID ||
-    invoiceData?.state === StateEnum.EXPIRED;
+  const isPaidOrExpired
+    = status === StateEnum.PAID
+      || status === StateEnum.EXPIRED
+      || invoiceData?.state === StateEnum.PAID
+      || invoiceData?.state === StateEnum.EXPIRED;
 
   useEffect(() => {
     if (invoiceId && method && invoiceData?.state === StateEnum.SELECT_METHOD) {
@@ -78,11 +81,13 @@ export const Sbp = () => {
 
   return (
     <>
-      {isMobile ? (
-        <SbpNSPK data={data as InvoiceProcessDto} />
-      ) : (
-        <SbpQR data={data as InvoiceProcessDto} />
-      )}
+      {isMobile
+        ? (
+          <SbpNSPK data={data as InvoiceProcessDto} />
+        )
+        : (
+          <SbpQR data={data as InvoiceProcessDto} />
+        )}
     </>
   );
 };

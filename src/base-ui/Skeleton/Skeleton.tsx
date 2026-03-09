@@ -1,4 +1,5 @@
 import type { HTMLAttributes } from 'react';
+
 import clsx from 'clsx';
 
 import styles from './Skeleton.module.scss';
