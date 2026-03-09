@@ -58,7 +58,7 @@
     "paySbp": "ОПЛАТИТЬ СБП",
     "redirectToPay": "ПЕРЕЙТИ К ОПЛАТЕ",
     "redirect": "Идет переадресация...",
-    "havingProblemsWithPayment": "Возникли проблемы при оплате?"
+    "havingProblemsWithPayment": "Возникли проблемы при переадресации?"
   },
   "alert": {
     "refreshPage": "После оплаты страница обновится автоматически",
