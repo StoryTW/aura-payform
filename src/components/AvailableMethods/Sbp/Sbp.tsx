@@ -44,11 +44,10 @@ export const Sbp = () => {
     },
   );
 
-  const isPaidOrExpired
-    = status === StateEnum.PAID
-      || status === StateEnum.EXPIRED
-      || invoiceData?.state === StateEnum.PAID
-      || invoiceData?.state === StateEnum.EXPIRED;
+  const isPaidOrExpired = invoiceData?.state === StateEnum.PAID
+    || invoiceData?.state === StateEnum.EXPIRED
+    || status === StateEnum.PAID
+    || status === StateEnum.EXPIRED;
 
   useEffect(() => {
     if (invoiceId && method && invoiceData?.state === StateEnum.SELECT_METHOD) {
@@ -71,7 +70,11 @@ export const Sbp = () => {
 
   useEffect(() => {
     if (isPaidOrExpired) {
-      navigate('status', { replace: true });
+      queryClient.invalidateQueries({
+        queryKey: [KEY_INVOICE_INFO],
+      });
+
+      navigate(`/${invoiceId}/status`, { replace: true });
     }
   }, [status, invoiceData?.state]);
 

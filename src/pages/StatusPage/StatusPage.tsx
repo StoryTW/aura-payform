@@ -3,10 +3,12 @@ import { useTranslation } from 'react-i18next';
 import { useMediaQuery } from 'react-responsive';
 import { useNavigate, useOutletContext, useParams } from 'react-router';
 
+// import { useQueryClient } from '@tanstack/react-query';
 import { Alert, type AlertVariantsType } from '@/base-ui/Alert/Alert';
 import { Button } from '@/base-ui/Button/Button';
 import { DescriptionInfo } from '@/components/InvoiceInfoView/DescriptionInfo/DescriptionInfo';
 import { LoaderView } from '@/pages/StatusPage/LoaderView/LoaderView';
+// import { KEY_INVOICE_INFO } from '@/query/hooks/useInvoiceInfo';
 import { useInvoiceStatusStore } from '@/store/useInvoiceStatusStore';
 import type { InvoiceInfoDto } from '@/types/response/invoice.response';
 import { QUERY_MOBILE } from '@/utils/helpers/constants';
@@ -47,12 +49,12 @@ export function Component() {
 
   const { status, initSubscription } = useInvoiceStatusStore();
 
-  const isWaitPay = status === StateEnum.WAIT_PAY;
-  // const isExpired = status === StateEnum.EXPIRED;
-  const isPaid = status === StateEnum.PAID;
-  const isSelectMethod = status === StateEnum.SELECT_METHOD;
+  const isWaitPay = invoiceData.state === StateEnum.WAIT_PAY || status === StateEnum.WAIT_PAY;
+  const isPaid = invoiceData.state === StateEnum.PAID || status === StateEnum.PAID;
+  const isSelectMethod = invoiceData.state === StateEnum.SELECT_METHOD || status === StateEnum.SELECT_METHOD;
 
-  const config = statusConfig[status as keyof typeof statusConfig];
+  const key = invoiceData.state || status;
+  const config = statusConfig[key as keyof typeof statusConfig];
 
   const handleReturnToTheStore = () => {
     if (invoiceData.success_url) {
@@ -65,11 +67,11 @@ export function Component() {
   };
 
   useEffect(() => {
-    if (isSelectMethod || invoiceData.state === StateEnum.SELECT_METHOD) {
+    if (isSelectMethod) {
       navigate(`/${invoiceId}`, { replace: true });
     }
 
-    if (isPaid || invoiceData.state === StateEnum.PAID) {
+    if (isPaid) {
       const timer = setTimeout(() => {
         window.location.href = String(invoiceData.success_url);
       }, 5000);
@@ -80,16 +82,18 @@ export function Component() {
     }
 
     return;
-  }, [status, invoiceData.state]);
+  }, [invoiceData.state, status]);
 
   useEffect(() => {
     if (!invoiceId) return;
 
-    const unsubscribe = initSubscription(invoiceId);
+    if (isWaitPay) {
+      const unsubscribe = initSubscription(invoiceId);
 
-    return () => {
-      unsubscribe();
-    };
+      return () => {
+        unsubscribe();
+      };
+    }
   }, [invoiceId, initSubscription]);
 
   if (isWaitPay) return <LoaderView />;

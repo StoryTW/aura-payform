@@ -5,13 +5,13 @@ import { WS_STATUS_EVENT } from '@/utils/helpers/constants';
 import { StateEnum, type StateEnumType } from '@/utils/helpers/enums';
 
 interface IInvoiceStatusStore {
-  status: StateEnumType;
-  setStatus: (status: StateEnumType) => void;
+  status: StateEnumType | null;
+  setStatus: (status: StateEnumType | null) => void;
   initSubscription: (id: string) => () => void;
 }
 
 export const useInvoiceStatusStore = create<IInvoiceStatusStore>((set, get) => ({
-  status: StateEnum.WAIT_PAY,
+  status: null,
 
   setStatus: (status) => set({ status }),
 
@@ -20,12 +20,10 @@ export const useInvoiceStatusStore = create<IInvoiceStatusStore>((set, get) => (
     const channelName = `invoice.${id}`;
 
     echo.channel(channelName).listen(WS_STATUS_EVENT, (e: { status: StateEnumType }) => {
-      if (
-        e.status === StateEnum.PAID
-        || e.status === StateEnum.EXPIRED
-        || e.status === StateEnum.SELECT_METHOD
-      ) {
-        get().setStatus(e.status);
+      const status = e.status;
+
+      if (status === StateEnum.PAID || status === StateEnum.EXPIRED) {
+        get().setStatus(status);
       }
     });
 

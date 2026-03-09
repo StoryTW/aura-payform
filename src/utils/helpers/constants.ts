@@ -2,8 +2,8 @@ export const AURA_LANDING_LINK = 'https://aurapay.tech/';
 
 export const AURA_PUBLIC_OFFER_LINK = 'https://aurapay.tech/docs/Oferta.pdf';
 
-export const AURA_PERSONAL_DATA_LINK =
-  'https://aurapay.tech/docs/Soglasie_na_obrabotku_personalnyh_dannyh.pdf';
+export const AURA_PERSONAL_DATA_LINK
+  = 'https://aurapay.tech/docs/Soglasie_na_obrabotku_personalnyh_dannyh.pdf';
 
 export const AURA_TERMS_OF_SERVICE_LINK = 'https://aurapay.tech/docs/Oferta.pdf';
 
@@ -14,3 +14,5 @@ export const QUERY_MOBILE = '(max-width: 480px)';
 export const QUERY_TABLET = '(max-width: 768px)';
 
 export const WS_STATUS_EVENT = '.invoice.status.change';
+
+export const STORAGE_REDIRECT_KEY = 'sbp_redirect_done';

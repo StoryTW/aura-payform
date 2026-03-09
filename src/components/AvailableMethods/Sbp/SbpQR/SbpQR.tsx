@@ -1,5 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import { useOutletContext } from 'react-router';
+
 import { QRCodeCanvas } from 'qrcode.react';
 
 import { Alert } from '@/base-ui/Alert/Alert';
@@ -17,8 +18,8 @@ export const SbpQR = ({ data }: ISbpQR) => {
 
   const { data: invoiceData } = useOutletContext<InvoiceContextType>();
 
-  const paymentLink =
-    data?.payment?.payment_data?.payment_link || invoiceData?.payment?.payment_data?.payment_link;
+  const paymentLink
+    = data?.payment?.payment_data?.payment_link || invoiceData?.payment?.payment_data?.payment_link;
 
   return (
     <div className={styles.sbpQr}>

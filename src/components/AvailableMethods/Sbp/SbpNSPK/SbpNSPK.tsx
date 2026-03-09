@@ -6,6 +6,7 @@ import { Button } from '@/base-ui/Button/Button';
 import { IconsPay } from '@/components/IconsPay/IconsPay';
 import { TermsOfService } from '@/components/TermsOfService/TermsOfService';
 import type { InvoiceContextType, InvoiceProcessDto } from '@/types/response/invoice.response';
+import { STORAGE_REDIRECT_KEY } from '@/utils/helpers/constants';
 
 import styles from './SbpNSPK.module.scss';
 
@@ -18,25 +19,31 @@ export const SbpNSPK = ({ data }: SbpNSPK) => {
 
   const { data: invoiceData } = useOutletContext<InvoiceContextType>();
 
-  const paymentLink =
-    data?.payment?.payment_data?.payment_link || invoiceData?.payment?.payment_data?.payment_link;
+  const paymentLink
+    = data?.payment?.payment_data?.payment_link || invoiceData?.payment?.payment_data?.payment_link;
 
   const handleNavigateToNSPK = () => {
     if (paymentLink) {
+      sessionStorage.setItem(STORAGE_REDIRECT_KEY, '1');
+
       window.location.href = paymentLink;
     }
   };
 
   useEffect(() => {
-    if (paymentLink) {
-      const timer = setTimeout(() => {
-        window.location.href = paymentLink;
-      }, 2000);
+    if (!paymentLink) return;
 
-      return () => {
-        clearTimeout(timer);
-      };
-    }
+    const alreadyRedirected = sessionStorage.getItem(STORAGE_REDIRECT_KEY);
+
+    if (alreadyRedirected) return;
+
+    const timer = setTimeout(() => {
+      sessionStorage.setItem(STORAGE_REDIRECT_KEY, '1');
+
+      window.location.href = paymentLink;
+    }, 2000);
+
+    return () => clearTimeout(timer);
   }, [paymentLink]);
 
   return (

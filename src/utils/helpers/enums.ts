@@ -21,5 +21,5 @@ export const PaymentDataStateEnum = {
   ERROR: 'error',
 } as const;
 
-export type PaymentDataStateEnumType =
-  (typeof PaymentDataStateEnum)[keyof typeof PaymentDataStateEnum];
+export type PaymentDataStateEnumType
+  = (typeof PaymentDataStateEnum)[keyof typeof PaymentDataStateEnum];
