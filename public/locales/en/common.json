@@ -22,12 +22,14 @@
   },
   "status": {
     "paymentError": "Payment error",
+    "error": "Error",
     "paymentSuccess": "Payment was successful",
     "thanks": "Thank you for your purchase. Your payment is processed.",
     "returnToTheStoreWebsite": "Return to the store website",
     "paymentIsProcessed": "Payment is being processed, please wait.",
     "dontClosePage": "Please don't close this page",
-    "operationNotCompleted": "The operation could not be completed. Please try again."
+    "operationNotCompleted": "The operation could not be completed. Please try again.",
+    "invoiceExpired": "The invoice has expired"
   },
   "validation": {
     "cardNumberLength": "Enter 16 digits",

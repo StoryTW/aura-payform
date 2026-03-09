@@ -3,12 +3,9 @@ import { useTranslation } from 'react-i18next';
 import { useMediaQuery } from 'react-responsive';
 import { useNavigate, useOutletContext, useParams } from 'react-router';
 
-// import { useQueryClient } from '@tanstack/react-query';
-import { Alert, type AlertVariantsType } from '@/base-ui/Alert/Alert';
 import { Button } from '@/base-ui/Button/Button';
 import { DescriptionInfo } from '@/components/InvoiceInfoView/DescriptionInfo/DescriptionInfo';
 import { LoaderView } from '@/pages/StatusPage/LoaderView/LoaderView';
-// import { KEY_INVOICE_INFO } from '@/query/hooks/useInvoiceInfo';
 import { useInvoiceStatusStore } from '@/store/useInvoiceStatusStore';
 import type { InvoiceInfoDto } from '@/types/response/invoice.response';
 import { QUERY_MOBILE } from '@/utils/helpers/constants';
@@ -30,8 +27,8 @@ const statusConfig = {
   },
   [StateEnum.EXPIRED]: {
     icon: srcIconError,
-    titleKey: 'status.paymentError',
-    descriptionKey: 'status.operationNotCompleted',
+    titleKey: 'status.error',
+    descriptionKey: 'status.invoiceExpired',
     alertVariant: 'error',
   },
 };
@@ -53,12 +50,18 @@ export function Component() {
   const isPaid = invoiceData.state === StateEnum.PAID || status === StateEnum.PAID;
   const isSelectMethod = invoiceData.state === StateEnum.SELECT_METHOD || status === StateEnum.SELECT_METHOD;
 
-  const key = invoiceData.state || status;
-  const config = statusConfig[key as keyof typeof statusConfig];
+  const keyStatus = invoiceData.state || status;
+  const config = statusConfig[keyStatus as keyof typeof statusConfig];
 
   const handleReturnToTheStore = () => {
-    if (invoiceData.success_url) {
+    if (invoiceData.state === StateEnum.PAID && invoiceData.success_url) {
       window.location.href = invoiceData.success_url;
+
+      return;
+    }
+
+    if (invoiceData.state === StateEnum.EXPIRED && invoiceData.fail_url) {
+      window.location.href = invoiceData.fail_url;
 
       return;
     }
@@ -120,7 +123,7 @@ export function Component() {
 
       <div className={styles.comment}>{invoiceData.comment}</div>
 
-      <Alert
+      {/* <Alert
         variant={config?.alertVariant as AlertVariantsType}
         text={
           status
@@ -140,7 +143,7 @@ export function Component() {
             )
         }
         className={styles.alert}
-      />
+      /> */}
 
       <Button
         variant='blue'

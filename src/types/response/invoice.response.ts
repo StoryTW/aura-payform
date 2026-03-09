@@ -12,6 +12,7 @@ export interface InvoiceInfoDto {
   comment: string;
   amount: number;
   commission: number;
+  expires_at: string;
   success_url: string | null;
   fail_url: string | null;
   service: ServiceEnumType | null;
@@ -36,7 +37,7 @@ export interface InvoiceProcessDto {
 export interface PaymentDto {
   service_id: ServiceEnumType;
   service_name: string;
-  expires_in: string;
+  expires_at: string;
   amount_pay: number;
   payment_data: {
     payment_link?: string;

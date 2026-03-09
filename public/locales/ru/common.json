@@ -22,12 +22,14 @@
   },
   "status": {
     "paymentError": "Ошибка оплаты",
+    "error": "Ошибка",
     "paymentSuccess": "Оплата прошла успешно",
     "thanks": "Спасибо за покупку. Ваш платёж обработан.",
     "returnToTheStoreWebsite": "Вернуться на сайт магазина",
     "paymentIsProcessed": "Платеж находится в обработке, ожидайте.",
     "dontClosePage": "Пожалуйста не закрывайте эту страницу",
-    "operationNotCompleted": "Не удалось завершить операцию. Попробуйте ещё раз."
+    "operationNotCompleted": "Не удалось завершить операцию. Попробуйте ещё раз.",
+    "invoiceExpired": "Оплата невозможна: срок действия счёта истёк"
   },
   "validation": {
     "cardNumberLength": "Введите 16 цифр",

@@ -1,6 +1,5 @@
-import { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useNavigate, useOutletContext } from 'react-router';
+import { Navigate, useNavigate, useOutletContext } from 'react-router';
 
 import { Button } from '@/base-ui/Button/Button';
 import { IconsPay } from '@/components/IconsPay/IconsPay';
@@ -19,14 +18,14 @@ export const SelectPaymentMethodPage = () => {
 
   const availableMethods = [
     {
-      id: ServiceEnum.CARD,
-      label: t('cardForm.payCard'),
-      icon: 'card' as const,
-    },
-    {
       id: ServiceEnum.SBP,
       label: t('sbpForm.paySbp'),
       icon: 'sbp' as const,
+    },
+    {
+      id: ServiceEnum.CARD,
+      label: t('cardForm.payCard'),
+      icon: 'card' as const,
     },
   ].filter(({ id }) => invoiceData?.methods?.some((method) => method.service_id === id));
 
@@ -40,11 +39,11 @@ export const SelectPaymentMethodPage = () => {
     return navigate(service, { replace: true });
   };
 
-  useEffect(() => {
-    if (invoiceData?.state === StateEnum.PAID || invoiceData?.state === StateEnum.EXPIRED) {
-      navigate('status', { replace: true });
-    }
-  }, []);
+  const isPaidOrExpired = invoiceData?.state === StateEnum.PAID || invoiceData?.state === StateEnum.EXPIRED;
+
+  if (isPaidOrExpired) {
+    return <Navigate to='status' replace />;
+  }
 
   return (
     <div className={styles.page}>

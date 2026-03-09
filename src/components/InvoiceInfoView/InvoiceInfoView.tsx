@@ -6,6 +6,8 @@ import type { InvoiceInfoDto } from '@/types/response/invoice.response';
 import { QUERY_TABLET } from '@/utils/helpers/constants';
 import { formatAmount } from '@/utils/helpers/formatAmount';
 
+import { Timer } from '../Timer/Timer';
+
 import { DescriptionInfo } from './DescriptionInfo/DescriptionInfo';
 import { DropdownShopInfo } from './DropdownShopInfo/DropdownShopInfo';
 
@@ -22,7 +24,9 @@ export const InvoiceInfoView = ({ invoiceData }: IInvoiceInfoView) => {
 
   return (
     <ViewWrapper>
-      <div className={styles.title}>{t('common.paymentDetails')}</div>
+      <div className={styles.title}>
+        {t('common.paymentDetails')}
+      </div>
 
       <div className={styles.amount}>{formatAmount(invoiceData.amount)}</div>
 
@@ -31,6 +35,8 @@ export const InvoiceInfoView = ({ invoiceData }: IInvoiceInfoView) => {
         {' '}
         {formatAmount(invoiceData.commission)}
       </div>
+
+      <Timer />
 
       <DescriptionInfo id={invoiceData.id} />
 
