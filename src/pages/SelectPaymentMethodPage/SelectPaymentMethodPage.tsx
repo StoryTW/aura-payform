@@ -45,10 +45,10 @@ export const SelectPaymentMethodPage = () => {
     && !invoiceData?.methods && invoiceData.payment?.service_id === ServiceEnum.SBP;
 
   const isAlreadySelectedMethodCard = invoiceData?.state === StateEnum.WAIT_PAY
-    && !invoiceData?.methods && invoiceData.payment?.service_id === ServiceEnum.CARD;
+    && !invoiceData?.methods && invoiceData?.payment?.service_id === ServiceEnum.CARD;
 
   if (isAlreadySelectedMethodSbp) {
-    return <Navigate to={String(invoiceData.payment?.service_id)} replace />;
+    return <Navigate to={String(invoiceData?.payment?.service_id)} replace />;
   }
 
   if (isPaidOrExpired || isAlreadySelectedMethodCard) {

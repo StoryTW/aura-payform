@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useOutletContext } from 'react-router';
 
 import { useQueryClient } from '@tanstack/react-query';
@@ -13,18 +13,22 @@ import styles from './Timer.module.scss';
 export const Timer = () => {
   const invoice = useOutletContext<InvoiceContextType>();
 
-  const timer = useCountdown(invoice?.data?.expires_at);
-
   const queryClient = useQueryClient();
 
-  useEffect(() => {
-    if (!timer) {
-      queryClient.invalidateQueries({
-        queryKey: [KEY_INVOICE_INFO],
-      });
-    }
+  const triggeredRef = useRef(false);
 
-    return;
+  const timer = useCountdown(invoice?.data?.expires_at);
+
+  useEffect(() => {
+    if (!timer && !triggeredRef.current) {
+      triggeredRef.current = true;
+
+      const timeout = setTimeout(() => {
+        queryClient.invalidateQueries({ queryKey: [KEY_INVOICE_INFO] });
+      }, 1500);
+
+      return () => clearTimeout(timeout);
+    }
   }, [timer]);
 
   return (
